@@ -76,7 +76,7 @@
             // nOMELabel
             // 
             nOMELabel.AutoSize = true;
-            nOMELabel.Location = new System.Drawing.Point(16, 63);
+            nOMELabel.Location = new System.Drawing.Point(29, 121);
             nOMELabel.Name = "nOMELabel";
             nOMELabel.Size = new System.Drawing.Size(42, 13);
             nOMELabel.TabIndex = 3;
@@ -184,8 +184,8 @@
             // bindingNavigatorCountItem
             // 
             this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(37, 22);
-            this.bindingNavigatorCountItem.Text = "de {0}";
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 22);
+            this.bindingNavigatorCountItem.Text = "of {0}";
             this.bindingNavigatorCountItem.ToolTipText = "Número total de itens";
             // 
             // bindingNavigatorDeleteItem
@@ -299,6 +299,7 @@
             this.iD_UTENTETextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.uTENTEBindingSource, "ID_UTENTE", true));
             this.iD_UTENTETextBox.Location = new System.Drawing.Point(156, 50);
             this.iD_UTENTETextBox.Name = "iD_UTENTETextBox";
+            this.iD_UTENTETextBox.ReadOnly = true;
             this.iD_UTENTETextBox.Size = new System.Drawing.Size(176, 20);
             this.iD_UTENTETextBox.TabIndex = 11;
             // 
@@ -354,9 +355,9 @@
             this.nOMEListBox.DataSource = this.uTENTEBindingSource;
             this.nOMEListBox.DisplayMember = "NOME";
             this.nOMEListBox.FormattingEnabled = true;
-            this.nOMEListBox.Location = new System.Drawing.Point(19, 93);
+            this.nOMEListBox.Location = new System.Drawing.Point(32, 165);
             this.nOMEListBox.Name = "nOMEListBox";
-            this.nOMEListBox.Size = new System.Drawing.Size(158, 186);
+            this.nOMEListBox.Size = new System.Drawing.Size(158, 251);
             this.nOMEListBox.TabIndex = 4;
             // 
             // Utente

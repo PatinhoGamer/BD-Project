@@ -12,9 +12,12 @@ namespace BD_Trab
 {
     public partial class Utente : Form
     {
-        public Utente()
+        private FormPrincipal principal;
+        public Utente(Form form)
         {
+            principal = (FormPrincipal)form;
             InitializeComponent();
+            Selected = this.nOMEListBox.SelectedIndex;
         }
 
         private void uTENTEBindingNavigatorSaveItem_Click(object sender, EventArgs e)
