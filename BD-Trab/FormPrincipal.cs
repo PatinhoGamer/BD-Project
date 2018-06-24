@@ -60,7 +60,19 @@ namespace BD_Trab
 
         private void consultarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new Trabalhadores().ShowDialog(this);
+            new Trabalhadores(this).ShowDialog(this);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Trabalhadores Check = new Trabalhadores(this);
+            Check.Show();
+            Hide();   
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

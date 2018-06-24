@@ -65,6 +65,7 @@
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.tRABALHADORBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.nOMEListBox = new System.Windows.Forms.ListBox();
+            this.button4 = new System.Windows.Forms.Button();
             iD_TRABALHADORLabel = new System.Windows.Forms.Label();
             nOMELabel = new System.Windows.Forms.Label();
             gENEROLabel = new System.Windows.Forms.Label();
@@ -168,9 +169,9 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(379, 280);
+            this.button3.Location = new System.Drawing.Point(203, 268);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.Size = new System.Drawing.Size(75, 47);
             this.button3.TabIndex = 14;
             this.button3.Text = "Apagar";
             this.button3.UseVisualStyleBackColor = true;
@@ -178,9 +179,9 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(27, 262);
+            this.button2.Location = new System.Drawing.Point(43, 268);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.Size = new System.Drawing.Size(74, 47);
             this.button2.TabIndex = 13;
             this.button2.Text = "Adicionar";
             this.button2.UseVisualStyleBackColor = true;
@@ -188,9 +189,9 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(249, 280);
+            this.button1.Location = new System.Drawing.Point(123, 268);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(74, 47);
             this.button1.TabIndex = 12;
             this.button1.Text = "Alterar";
             this.button1.UseVisualStyleBackColor = true;
@@ -310,8 +311,8 @@
             // bindingNavigatorCountItem
             // 
             this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(37, 22);
-            this.bindingNavigatorCountItem.Text = "de {0}";
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 22);
+            this.bindingNavigatorCountItem.Text = "of {0}";
             this.bindingNavigatorCountItem.ToolTipText = "Número total de itens";
             // 
             // bindingNavigatorDeleteItem
@@ -403,16 +404,30 @@
             this.nOMEListBox.Size = new System.Drawing.Size(155, 303);
             this.nOMEListBox.TabIndex = 3;
             // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(658, 28);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.TabIndex = 4;
+            this.button4.Text = "Voltar";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
             // Trabalhadores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button4);
             this.Controls.Add(nOMELabel1);
             this.Controls.Add(this.nOMEListBox);
             this.Controls.Add(this.tRABALHADORBindingNavigator);
             this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "Trabalhadores";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Trabalhadores";
             this.Load += new System.EventHandler(this.Trabalhadores_Load);
             this.groupBox1.ResumeLayout(false);
@@ -457,5 +472,6 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ListBox nOMEListBox;
+        private System.Windows.Forms.Button button4;
     }
 }
