@@ -36,6 +36,7 @@
             this.trabalhadoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.urgênciasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.carrinhasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.consultarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -85,6 +86,8 @@
             // 
             // trabalhadoresToolStripMenuItem
             // 
+            this.trabalhadoresToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.consultarToolStripMenuItem});
             this.trabalhadoresToolStripMenuItem.Name = "trabalhadoresToolStripMenuItem";
             this.trabalhadoresToolStripMenuItem.Size = new System.Drawing.Size(93, 20);
             this.trabalhadoresToolStripMenuItem.Text = "Trabalhadores";
@@ -102,6 +105,13 @@
             this.carrinhasToolStripMenuItem.Name = "carrinhasToolStripMenuItem";
             this.carrinhasToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
             this.carrinhasToolStripMenuItem.Text = "Carrinhas";
+            // 
+            // consultarToolStripMenuItem
+            // 
+            this.consultarToolStripMenuItem.Name = "consultarToolStripMenuItem";
+            this.consultarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.consultarToolStripMenuItem.Text = "Consultar";
+            this.consultarToolStripMenuItem.Click += new System.EventHandler(this.consultarToolStripMenuItem_Click);
             // 
             // FormPrincipal
             // 
@@ -129,6 +139,7 @@
         private System.Windows.Forms.ToolStripMenuItem urgênciasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pesquisarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem carrinhasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem consultarToolStripMenuItem;
     }
 }
 

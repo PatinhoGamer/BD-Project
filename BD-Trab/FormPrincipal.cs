@@ -57,5 +57,10 @@ namespace BD_Trab
             */
             new Utente().ShowDialog(this);
         }
+
+        private void consultarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new Trabalhadores().ShowDialog(this);
+        }
     }
 }
