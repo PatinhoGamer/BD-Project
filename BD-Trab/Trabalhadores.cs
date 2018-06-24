@@ -34,7 +34,42 @@ namespace BD_Trab
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            this.tRABALHADORBindingSource.AddNew();
+            this.iD_TRABALHADORTextBox.Text = this.tRABALHADORTableAdapter.GetNextID_Trabalhador().ToString();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.tRABALHADORBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.bD);
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.tRABALHADORBindingSource.RemoveCurrent();
+            this.tableAdapterManager.UpdateAll(this.bD);
+        }
+
+
+        /*
+       private void button1_Click(object sender, EventArgs e)
+       {
+           this.uTENTEBindingSource.AddNew();
+           this.iD_UTENTETextBox.Text = this.uTENTETableAdapter.GetNextID_Utente().ToString();
+       }
+
+       private void button2_Click(object sender, EventArgs e)
+       {
+           this.Validate();
+           this.uTENTEBindingSource.EndEdit();
+           this.tableAdapterManager.UpdateAll(this.bd1);
+       }
+
+       private void button3_Click(object sender, EventArgs e)
+       {
+           this.uTENTEBindingSource.RemoveCurrent();
+           this.tableAdapterManager.UpdateAll(this.bd1);
+       }*/
     }
 }
