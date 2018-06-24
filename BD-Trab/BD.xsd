@@ -85,7 +85,17 @@
               <Mapping SourceColumn="ENCARGO" DataSetColumn="ENCARGO" />
               <Mapping SourceColumn="TURNO" DataSetColumn="TURNO" />
             </Mappings>
-            <Sources />
+            <Sources>
+              <DbSource ConnectionRef="BD (Settings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="GetNextID_Trabalhador" Modifier="Public" Name="GetNextID_Trabalhador" QueryType="Scalar" ScalarCallRetval="System.Decimal, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="GetNextID_Trabalhador">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT max(id_trabalhador)+ 1 as next
+FROM trabalhador</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TRABURGTableAdapter" GeneratorDataComponentClassName="TRABURGTableAdapter" Name="TRABURG" UserDataComponentName="TRABURGTableAdapter">
             <MainSource>
@@ -213,7 +223,7 @@ FROM UTENTE</CommandText>
   <xs:element name="BD" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="BD" msprop:Generator_UserDSName="BD">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="CONTACTOS" msprop:Generator_TableClassName="CONTACTOSDataTable" msprop:Generator_TableVarName="tableCONTACTOS" msprop:Generator_RowChangedName="CONTACTOSRowChanged" msprop:Generator_TablePropName="CONTACTOS" msprop:Generator_RowDeletingName="CONTACTOSRowDeleting" msprop:Generator_RowChangingName="CONTACTOSRowChanging" msprop:Generator_RowEvHandlerName="CONTACTOSRowChangeEventHandler" msprop:Generator_RowDeletedName="CONTACTOSRowDeleted" msprop:Generator_RowClassName="CONTACTOSRow" msprop:Generator_UserTableName="CONTACTOS" msprop:Generator_RowEvArgName="CONTACTOSRowChangeEvent">
+        <xs:element name="CONTACTOS" msprop:Generator_TableClassName="CONTACTOSDataTable" msprop:Generator_TableVarName="tableCONTACTOS" msprop:Generator_TablePropName="CONTACTOS" msprop:Generator_RowDeletingName="CONTACTOSRowDeleting" msprop:Generator_RowChangingName="CONTACTOSRowChanging" msprop:Generator_RowEvHandlerName="CONTACTOSRowChangeEventHandler" msprop:Generator_RowDeletedName="CONTACTOSRowDeleted" msprop:Generator_UserTableName="CONTACTOS" msprop:Generator_RowChangedName="CONTACTOSRowChanged" msprop:Generator_RowEvArgName="CONTACTOSRowChangeEvent" msprop:Generator_RowClassName="CONTACTOSRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID_UTENTE" msprop:Generator_ColumnVarNameInTable="columnID_UTENTE" msprop:Generator_ColumnPropNameInRow="ID_UTENTE" msprop:Generator_ColumnPropNameInTable="ID_UTENTEColumn" msprop:Generator_UserColumnName="ID_UTENTE" type="xs:short" />
@@ -221,7 +231,7 @@ FROM UTENTE</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="TRABALHADOR" msprop:Generator_TableClassName="TRABALHADORDataTable" msprop:Generator_TableVarName="tableTRABALHADOR" msprop:Generator_RowChangedName="TRABALHADORRowChanged" msprop:Generator_TablePropName="TRABALHADOR" msprop:Generator_RowDeletingName="TRABALHADORRowDeleting" msprop:Generator_RowChangingName="TRABALHADORRowChanging" msprop:Generator_RowEvHandlerName="TRABALHADORRowChangeEventHandler" msprop:Generator_RowDeletedName="TRABALHADORRowDeleted" msprop:Generator_RowClassName="TRABALHADORRow" msprop:Generator_UserTableName="TRABALHADOR" msprop:Generator_RowEvArgName="TRABALHADORRowChangeEvent">
+        <xs:element name="TRABALHADOR" msprop:Generator_TableClassName="TRABALHADORDataTable" msprop:Generator_TableVarName="tableTRABALHADOR" msprop:Generator_TablePropName="TRABALHADOR" msprop:Generator_RowDeletingName="TRABALHADORRowDeleting" msprop:Generator_RowChangingName="TRABALHADORRowChanging" msprop:Generator_RowEvHandlerName="TRABALHADORRowChangeEventHandler" msprop:Generator_RowDeletedName="TRABALHADORRowDeleted" msprop:Generator_UserTableName="TRABALHADOR" msprop:Generator_RowChangedName="TRABALHADORRowChanged" msprop:Generator_RowEvArgName="TRABALHADORRowChangeEvent" msprop:Generator_RowClassName="TRABALHADORRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID_TRABALHADOR" msprop:Generator_ColumnVarNameInTable="columnID_TRABALHADOR" msprop:Generator_ColumnPropNameInRow="ID_TRABALHADOR" msprop:Generator_ColumnPropNameInTable="ID_TRABALHADORColumn" msprop:Generator_UserColumnName="ID_TRABALHADOR" type="xs:short" />
@@ -263,7 +273,7 @@ FROM UTENTE</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="TRABURG" msprop:Generator_TableClassName="TRABURGDataTable" msprop:Generator_TableVarName="tableTRABURG" msprop:Generator_RowChangedName="TRABURGRowChanged" msprop:Generator_TablePropName="TRABURG" msprop:Generator_RowDeletingName="TRABURGRowDeleting" msprop:Generator_RowChangingName="TRABURGRowChanging" msprop:Generator_RowEvHandlerName="TRABURGRowChangeEventHandler" msprop:Generator_RowDeletedName="TRABURGRowDeleted" msprop:Generator_RowClassName="TRABURGRow" msprop:Generator_UserTableName="TRABURG" msprop:Generator_RowEvArgName="TRABURGRowChangeEvent">
+        <xs:element name="TRABURG" msprop:Generator_TableClassName="TRABURGDataTable" msprop:Generator_TableVarName="tableTRABURG" msprop:Generator_TablePropName="TRABURG" msprop:Generator_RowDeletingName="TRABURGRowDeleting" msprop:Generator_RowChangingName="TRABURGRowChanging" msprop:Generator_RowEvHandlerName="TRABURGRowChangeEventHandler" msprop:Generator_RowDeletedName="TRABURGRowDeleted" msprop:Generator_UserTableName="TRABURG" msprop:Generator_RowChangedName="TRABURGRowChanged" msprop:Generator_RowEvArgName="TRABURGRowChangeEvent" msprop:Generator_RowClassName="TRABURGRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID_URGENCIA" msprop:Generator_ColumnVarNameInTable="columnID_URGENCIA" msprop:Generator_ColumnPropNameInRow="ID_URGENCIA" msprop:Generator_ColumnPropNameInTable="ID_URGENCIAColumn" msprop:Generator_UserColumnName="ID_URGENCIA" type="xs:short" />
@@ -271,7 +281,7 @@ FROM UTENTE</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="URGENCIA" msprop:Generator_TableClassName="URGENCIADataTable" msprop:Generator_TableVarName="tableURGENCIA" msprop:Generator_RowChangedName="URGENCIARowChanged" msprop:Generator_TablePropName="URGENCIA" msprop:Generator_RowDeletingName="URGENCIARowDeleting" msprop:Generator_RowChangingName="URGENCIARowChanging" msprop:Generator_RowEvHandlerName="URGENCIARowChangeEventHandler" msprop:Generator_RowDeletedName="URGENCIARowDeleted" msprop:Generator_RowClassName="URGENCIARow" msprop:Generator_UserTableName="URGENCIA" msprop:Generator_RowEvArgName="URGENCIARowChangeEvent">
+        <xs:element name="URGENCIA" msprop:Generator_TableClassName="URGENCIADataTable" msprop:Generator_TableVarName="tableURGENCIA" msprop:Generator_TablePropName="URGENCIA" msprop:Generator_RowDeletingName="URGENCIARowDeleting" msprop:Generator_RowChangingName="URGENCIARowChanging" msprop:Generator_RowEvHandlerName="URGENCIARowChangeEventHandler" msprop:Generator_RowDeletedName="URGENCIARowDeleted" msprop:Generator_UserTableName="URGENCIA" msprop:Generator_RowChangedName="URGENCIARowChanged" msprop:Generator_RowEvArgName="URGENCIARowChangeEvent" msprop:Generator_RowClassName="URGENCIARow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID_URGENCIA" msprop:Generator_ColumnVarNameInTable="columnID_URGENCIA" msprop:Generator_ColumnPropNameInRow="ID_URGENCIA" msprop:Generator_ColumnPropNameInTable="ID_URGENCIAColumn" msprop:Generator_UserColumnName="ID_URGENCIA" type="xs:int" />
@@ -288,7 +298,7 @@ FROM UTENTE</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="UTENTE" msprop:Generator_TableClassName="UTENTEDataTable" msprop:Generator_TableVarName="tableUTENTE" msprop:Generator_RowChangedName="UTENTERowChanged" msprop:Generator_TablePropName="UTENTE" msprop:Generator_RowDeletingName="UTENTERowDeleting" msprop:Generator_RowChangingName="UTENTERowChanging" msprop:Generator_RowEvHandlerName="UTENTERowChangeEventHandler" msprop:Generator_RowDeletedName="UTENTERowDeleted" msprop:Generator_RowClassName="UTENTERow" msprop:Generator_UserTableName="UTENTE" msprop:Generator_RowEvArgName="UTENTERowChangeEvent">
+        <xs:element name="UTENTE" msprop:Generator_TableClassName="UTENTEDataTable" msprop:Generator_TableVarName="tableUTENTE" msprop:Generator_TablePropName="UTENTE" msprop:Generator_RowDeletingName="UTENTERowDeleting" msprop:Generator_RowChangingName="UTENTERowChanging" msprop:Generator_RowEvHandlerName="UTENTERowChangeEventHandler" msprop:Generator_RowDeletedName="UTENTERowDeleted" msprop:Generator_UserTableName="UTENTE" msprop:Generator_RowChangedName="UTENTERowChanged" msprop:Generator_RowEvArgName="UTENTERowChangeEvent" msprop:Generator_RowClassName="UTENTERow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID_UTENTE" msprop:Generator_ColumnVarNameInTable="columnID_UTENTE" msprop:Generator_ColumnPropNameInRow="ID_UTENTE" msprop:Generator_ColumnPropNameInTable="ID_UTENTEColumn" msprop:Generator_UserColumnName="ID_UTENTE" type="xs:short" />
@@ -343,10 +353,10 @@ FROM UTENTE</CommandText>
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="SYS_C00243313" msdata:parent="UTENTE" msdata:child="CONTACTOS" msdata:parentkey="ID_UTENTE" msdata:childkey="ID_UTENTE" msprop:Generator_UserChildTable="CONTACTOS" msprop:Generator_ChildPropName="GetCONTACTOSRows" msprop:Generator_UserRelationName="SYS_C00243313" msprop:Generator_ParentPropName="UTENTERow" msprop:Generator_RelationVarName="relationSYS_C00243313" msprop:Generator_UserParentTable="UTENTE" />
-      <msdata:Relationship name="SYS_C00243331" msdata:parent="TRABALHADOR" msdata:child="TRABURG" msdata:parentkey="ID_TRABALHADOR" msdata:childkey="ID_TRABALHADOR" msprop:Generator_UserChildTable="TRABURG" msprop:Generator_ChildPropName="GetTRABURGRows" msprop:Generator_UserRelationName="SYS_C00243331" msprop:Generator_RelationVarName="relationSYS_C00243331" msprop:Generator_UserParentTable="TRABALHADOR" msprop:Generator_ParentPropName="TRABALHADORRow" />
-      <msdata:Relationship name="SYS_C00243325" msdata:parent="UTENTE" msdata:child="URGENCIA" msdata:parentkey="ID_UTENTE" msdata:childkey="ID_UTENTE" msprop:Generator_UserChildTable="URGENCIA" msprop:Generator_ChildPropName="GetURGENCIARows" msprop:Generator_UserRelationName="SYS_C00243325" msprop:Generator_ParentPropName="UTENTERow" msprop:Generator_RelationVarName="relationSYS_C00243325" msprop:Generator_UserParentTable="UTENTE" />
-      <msdata:Relationship name="SYS_C00243326" msdata:parent="TRABALHADOR" msdata:child="URGENCIA" msdata:parentkey="ID_TRABALHADOR" msdata:childkey="ID_TRABALHADOR" msprop:Generator_UserChildTable="URGENCIA" msprop:Generator_ChildPropName="GetURGENCIARows" msprop:Generator_UserRelationName="SYS_C00243326" msprop:Generator_RelationVarName="relationSYS_C00243326" msprop:Generator_UserParentTable="TRABALHADOR" msprop:Generator_ParentPropName="TRABALHADORRow" />
+      <msdata:Relationship name="SYS_C00243313" msdata:parent="UTENTE" msdata:child="CONTACTOS" msdata:parentkey="ID_UTENTE" msdata:childkey="ID_UTENTE" msprop:Generator_UserChildTable="CONTACTOS" msprop:Generator_ChildPropName="GetCONTACTOSRows" msprop:Generator_UserRelationName="SYS_C00243313" msprop:Generator_RelationVarName="relationSYS_C00243313" msprop:Generator_UserParentTable="UTENTE" msprop:Generator_ParentPropName="UTENTERow" />
+      <msdata:Relationship name="SYS_C00243331" msdata:parent="TRABALHADOR" msdata:child="TRABURG" msdata:parentkey="ID_TRABALHADOR" msdata:childkey="ID_TRABALHADOR" msprop:Generator_UserChildTable="TRABURG" msprop:Generator_ChildPropName="GetTRABURGRows" msprop:Generator_UserRelationName="SYS_C00243331" msprop:Generator_ParentPropName="TRABALHADORRow" msprop:Generator_RelationVarName="relationSYS_C00243331" msprop:Generator_UserParentTable="TRABALHADOR" />
+      <msdata:Relationship name="SYS_C00243325" msdata:parent="UTENTE" msdata:child="URGENCIA" msdata:parentkey="ID_UTENTE" msdata:childkey="ID_UTENTE" msprop:Generator_UserChildTable="URGENCIA" msprop:Generator_ChildPropName="GetURGENCIARows" msprop:Generator_UserRelationName="SYS_C00243325" msprop:Generator_RelationVarName="relationSYS_C00243325" msprop:Generator_UserParentTable="UTENTE" msprop:Generator_ParentPropName="UTENTERow" />
+      <msdata:Relationship name="SYS_C00243326" msdata:parent="TRABALHADOR" msdata:child="URGENCIA" msdata:parentkey="ID_TRABALHADOR" msdata:childkey="ID_TRABALHADOR" msprop:Generator_UserChildTable="URGENCIA" msprop:Generator_ChildPropName="GetURGENCIARows" msprop:Generator_UserRelationName="SYS_C00243326" msprop:Generator_ParentPropName="TRABALHADORRow" msprop:Generator_RelationVarName="relationSYS_C00243326" msprop:Generator_UserParentTable="TRABALHADOR" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>
