@@ -12,8 +12,10 @@ namespace BD_Trab
 {
     public partial class Trabalhadores : Form
     {
-        public Trabalhadores()
+        private FormPrincipal form;
+        public Trabalhadores(Form asd)
         {
+            form = (FormPrincipal)asd;
             InitializeComponent();
         }
 
@@ -49,6 +51,12 @@ namespace BD_Trab
         {
             this.tRABALHADORBindingSource.RemoveCurrent();
             this.tableAdapterManager.UpdateAll(this.bD);
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            form.Show();
+            Close();
         }
 
 
