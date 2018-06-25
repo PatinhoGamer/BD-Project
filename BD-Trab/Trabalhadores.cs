@@ -15,6 +15,7 @@ namespace BD_Trab
         private FormPrincipal principal;
         private string search;
         private string filter;
+        private bool checkClose = true;
 
         public Trabalhadores(Form form)
         {
@@ -58,7 +59,8 @@ namespace BD_Trab
         }
 
         private void button4_Click(object sender, EventArgs e)
-        { 
+        {
+            checkClose = false;
             principal.Show();
             Close();
         }
@@ -71,13 +73,20 @@ namespace BD_Trab
 
         private void Trabalhadores_FormClosing(object sender, FormClosingEventArgs e)
         {
-            principal.Close();
+            if(checkClose)
+                principal.Close();
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             search = this.textBox1.Text;
-            tRABALHADORBindingSource.Filter = string.Format("{0} LIKE '%{1}%'",filter,search);
+            if (filter[0] == 'I')
+            {
+                if (int.TryParse(search, out int id))
+                    tRABALHADORBindingSource.Filter = string.Format("{0} = {1}", filter, id);
+            }
+            else
+                tRABALHADORBindingSource.Filter = string.Format("{0} LIKE '%{1}%'", filter, search);
         }
 
 

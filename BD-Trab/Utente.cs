@@ -13,6 +13,8 @@ namespace BD_Trab
     public partial class Utente : Form
     {
         private FormPrincipal principal;
+        private bool checkClose = true;
+
         public Utente(Form form)
         {
             principal = (FormPrincipal)form;
@@ -55,13 +57,15 @@ namespace BD_Trab
 
         private void button4_Click(object sender, EventArgs e)
         {
+            checkClose = false;
             principal.Show();
             Hide();
         }
 
         private void Utente_FormClosing(object sender, FormClosingEventArgs e)
         {
-            principal.Close();
+            if(checkClose)
+                principal.Close();
         }
     }
 }
