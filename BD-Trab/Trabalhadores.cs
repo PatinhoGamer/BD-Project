@@ -12,10 +12,10 @@ namespace BD_Trab
 {
     public partial class Trabalhadores : Form
     {
-        private FormPrincipal form;
-        public Trabalhadores(Form asd)
+        private FormPrincipal principal;
+        public Trabalhadores(Form form)
         {
-            form = (FormPrincipal)asd;
+            principal = (FormPrincipal)form;
             InitializeComponent();
         }
 
@@ -54,8 +54,8 @@ namespace BD_Trab
         }
 
         private void button4_Click(object sender, EventArgs e)
-        {
-            form.Show();
+        { 
+            principal.Show();
             Close();
         }
 

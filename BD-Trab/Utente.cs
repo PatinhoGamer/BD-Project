@@ -17,7 +17,6 @@ namespace BD_Trab
         {
             principal = (FormPrincipal)form;
             InitializeComponent();
-            Selected = this.nOMEListBox.SelectedIndex;
         }
 
         private void uTENTEBindingNavigatorSaveItem_Click(object sender, EventArgs e)
@@ -52,6 +51,12 @@ namespace BD_Trab
         {
             this.uTENTEBindingSource.RemoveCurrent();
             this.tableAdapterManager.UpdateAll(this.bd1);
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            principal.Show();
+            Hide();
         }
     }
 }

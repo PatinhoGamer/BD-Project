@@ -61,6 +61,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.nOMEListBox = new System.Windows.Forms.ListBox();
+            this.button4 = new System.Windows.Forms.Button();
             nOMELabel = new System.Windows.Forms.Label();
             iD_UTENTELabel = new System.Windows.Forms.Label();
             nOMELabel1 = new System.Windows.Forms.Label();
@@ -360,16 +361,30 @@
             this.nOMEListBox.Size = new System.Drawing.Size(158, 251);
             this.nOMEListBox.TabIndex = 4;
             // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(675, 35);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.TabIndex = 5;
+            this.button4.Text = "Voltar";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
             // Utente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button4);
             this.Controls.Add(nOMELabel);
             this.Controls.Add(this.nOMEListBox);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.uTENTEBindingNavigator);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "Utente";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Utente";
             this.Load += new System.EventHandler(this.Utente_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bd1)).EndInit();
@@ -412,5 +427,6 @@
         private System.Windows.Forms.TextBox gENEROTextBox;
         private System.Windows.Forms.TextBox mORADATextBox;
         private System.Windows.Forms.ListBox nOMEListBox;
+        private System.Windows.Forms.Button button4;
     }
 }

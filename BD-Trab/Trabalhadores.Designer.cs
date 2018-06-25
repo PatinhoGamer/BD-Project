@@ -202,6 +202,7 @@
             this.iD_TRABALHADORTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tRABALHADORBindingSource, "ID_TRABALHADOR", true));
             this.iD_TRABALHADORTextBox.Location = new System.Drawing.Point(151, 47);
             this.iD_TRABALHADORTextBox.Name = "iD_TRABALHADORTextBox";
+            this.iD_TRABALHADORTextBox.ReadOnly = true;
             this.iD_TRABALHADORTextBox.Size = new System.Drawing.Size(100, 20);
             this.iD_TRABALHADORTextBox.TabIndex = 1;
             // 

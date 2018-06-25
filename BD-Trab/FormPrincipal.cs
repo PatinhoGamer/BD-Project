@@ -55,7 +55,7 @@ namespace BD_Trab
 
             SqlCommand myCommand = new SqlCommand(Command);
             */
-            new Utente().ShowDialog(this);
+            new Utente(this).ShowDialog(this);
         }
 
         private void consultarToolStripMenuItem_Click(object sender, EventArgs e)
@@ -73,6 +73,13 @@ namespace BD_Trab
         private void button3_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Utente Putente = new Utente(this);
+            Putente.Show();
+            Hide();
         }
     }
 }
