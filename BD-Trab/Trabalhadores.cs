@@ -54,23 +54,18 @@ namespace BD_Trab
         {
             groupBox2.Hide();
             groupBox1.Show();
-
-            if (!this.Validate())
-                MessageBox.Show("Not Valid!");
-            this.tRABALHADORBindingSource.EndEdit();
-            this.tRABALHADORBindingSource.AddNew();
-            this.tRABALHADORBindingSource.RemoveCurrent();
-            this.tableAdapterManager.UpdateAll(this.bD);
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
+            
             this.tRABALHADORBindingSource.RemoveCurrent();
-            this.tableAdapterManager.UpdateAll(this.bD);
+            
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
+            this.tableAdapterManager.UpdateAll(this.bD);
             checkClose = false;
             principal.Show();
             Close();
@@ -104,12 +99,14 @@ namespace BD_Trab
         {
             groupBox1.Hide();
             groupBox2.Show();
+            if (!this.Validate())
+                MessageBox.Show("Not Valid!");
+            this.tRABALHADORBindingSource.EndEdit();
+           // this.tRABALHADORBindingSource.AddNew();
+            //this.tRABALHADORBindingSource.RemoveCurrent();
+            this.tableAdapterManager.UpdateAll(this.bD);
         }
 
-        private void groupBox2_Enter(object sender, EventArgs e)
-        {
-
-        }
 
 
 
