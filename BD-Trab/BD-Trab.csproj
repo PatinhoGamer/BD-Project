@@ -71,6 +71,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BD.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Login.cs" />
     <Compile Include="FormPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -13,10 +13,14 @@ namespace BD_Trab
 {
     public partial class FormPrincipal : Form
     {
+        
+
         public FormPrincipal()
         {
             InitializeComponent();
         }
+
+        Login login = new Login("admin", "1234");
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -80,6 +84,23 @@ namespace BD_Trab
             Utente Putente = new Utente(this);
             Putente.Show();
             Hide();
+        }
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            //define local variables from the user inputs 
+            string user = textBox1.Text;
+            string pass = textBox2.Text;
+            //check if eligible to be logged in 
+            if (login.IsLoggedIn(user, pass))
+            {
+                MessageBox.Show("You are logged in successfully");
+            }
+            else
+            {
+                //show default login error message 
+                MessageBox.Show("Login Error!");
+            }
         }
     }
 }
