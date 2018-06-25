@@ -396,6 +396,7 @@
             // 
             // nOMEListBox
             // 
+            this.nOMEListBox.CausesValidation = false;
             this.nOMEListBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.tRABALHADORBindingSource, "NOME", true));
             this.nOMEListBox.DataSource = this.tRABALHADORBindingSource;
             this.nOMEListBox.DisplayMember = "NOME";

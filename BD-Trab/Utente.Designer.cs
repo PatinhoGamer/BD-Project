@@ -352,6 +352,7 @@
             // 
             // nOMEListBox
             // 
+            this.nOMEListBox.CausesValidation = false;
             this.nOMEListBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.uTENTEBindingSource, "NOME", true));
             this.nOMEListBox.DataSource = this.uTENTEBindingSource;
             this.nOMEListBox.DisplayMember = "NOME";
