@@ -21,6 +21,7 @@ namespace BD_Trab
         {
             principal = (FormPrincipal)form;
             InitializeComponent();
+            groupBox1.Hide();
         }
 
         private void tRABALHADORBindingNavigatorSaveItem_Click(object sender, EventArgs e)
@@ -40,8 +41,11 @@ namespace BD_Trab
 
         private void button2_Click(object sender, EventArgs e)
         {
-            this.tRABALHADORBindingSource.AddNew();
-            this.iD_TRABALHADORTextBox.Text = this.tRABALHADORTableAdapter.GetNextID_Trabalhador().ToString();
+
+            groupBox2.Hide();
+            groupBox1.Show();
+            //this.tRABALHADORBindingSource.AddNew();
+            //this.iD_TRABALHADORTextBox.Text = this.tRABALHADORTableAdapter.GetNextID_Trabalhador().ToString();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -87,6 +91,17 @@ namespace BD_Trab
             }
             else
                 tRABALHADORBindingSource.Filter = string.Format("{0} LIKE '%{1}%'", filter, search);
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            groupBox1.Hide();
+            groupBox2.Show();
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
         }
 
 

@@ -18,6 +18,7 @@ namespace BD_Trab
         public FormPrincipal()
         {
             InitializeComponent();
+            groupBox2.Hide();
         }
 
         Login login = new Login("admin", "1234");
@@ -95,6 +96,8 @@ namespace BD_Trab
             if (login.IsLoggedIn(user, pass))
             {
                 MessageBox.Show("You are logged in successfully");
+                groupBox1.Hide();
+                groupBox2.Show();
             }
             else
             {
