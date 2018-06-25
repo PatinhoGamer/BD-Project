@@ -44,15 +44,22 @@ namespace BD_Trab
 
             groupBox2.Hide();
             groupBox1.Show();
-            //this.tRABALHADORBindingSource.AddNew();
-            //this.iD_TRABALHADORTextBox.Text = this.tRABALHADORTableAdapter.GetNextID_Trabalhador().ToString();
+
+            this.tRABALHADORBindingSource.AddNew();
+
+            this.iD_TRABALHADORTextBox.Text = this.tRABALHADORTableAdapter.GetNextID_Trabalhador().ToString();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            groupBox2.Hide();
+            groupBox1.Show();
+
             if (!this.Validate())
                 MessageBox.Show("Not Valid!");
             this.tRABALHADORBindingSource.EndEdit();
+            this.tRABALHADORBindingSource.AddNew();
+            this.tRABALHADORBindingSource.RemoveCurrent();
             this.tableAdapterManager.UpdateAll(this.bD);
         }
 

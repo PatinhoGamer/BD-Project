@@ -38,14 +38,20 @@ namespace BD_Trab
 
         private void button1_Click(object sender, EventArgs e)
         {
+            groupBox2.Hide();
+            groupBox1.Show();
             this.uTENTEBindingSource.AddNew();
             this.iD_UTENTETextBox.Text = this.uTENTETableAdapter.GetNextID_Utente().ToString();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
+            groupBox2.Hide();
+            groupBox1.Show();
             this.Validate();
             this.uTENTEBindingSource.EndEdit();
+            this.uTENTEBindingSource.AddNew();
+            this.uTENTEBindingSource.RemoveCurrent();
             this.tableAdapterManager.UpdateAll(this.bd1);
         }
 
@@ -66,6 +72,12 @@ namespace BD_Trab
         {
             if(checkClose)
                 principal.Close();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            groupBox1.Hide();
+            groupBox2.Show();
         }
     }
 }
