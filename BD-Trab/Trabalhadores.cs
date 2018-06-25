@@ -76,8 +76,7 @@ namespace BD_Trab
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            search = this.textBox1.ToString();
-            MessageBox.Show(search);
+            search = this.textBox1.Text;
             tRABALHADORBindingSource.Filter = string.Format("{0} LIKE '%{1}%'",filter,search);
         }
 
