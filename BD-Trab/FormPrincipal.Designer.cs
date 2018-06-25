@@ -29,9 +29,6 @@
         private void InitializeComponent()
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.utentesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pesquisarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.urgênciasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.carrinhasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -42,6 +39,7 @@
             this.button3 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.button4 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -50,37 +48,12 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.utentesToolStripMenuItem,
-            this.urgênciasToolStripMenuItem,
             this.carrinhasToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
-            // 
-            // utentesToolStripMenuItem
-            // 
-            this.utentesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.pesquisarToolStripMenuItem});
-            this.utentesToolStripMenuItem.Name = "utentesToolStripMenuItem";
-            this.utentesToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
-            this.utentesToolStripMenuItem.Text = "Utentes";
-            this.utentesToolStripMenuItem.Click += new System.EventHandler(this.utentesToolStripMenuItem_Click);
-            // 
-            // pesquisarToolStripMenuItem
-            // 
-            this.pesquisarToolStripMenuItem.Name = "pesquisarToolStripMenuItem";
-            this.pesquisarToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
-            this.pesquisarToolStripMenuItem.Text = "Consultar";
-            this.pesquisarToolStripMenuItem.Click += new System.EventHandler(this.pesquisarToolStripMenuItem_Click);
-            // 
-            // urgênciasToolStripMenuItem
-            // 
-            this.urgênciasToolStripMenuItem.Name = "urgênciasToolStripMenuItem";
-            this.urgênciasToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
-            this.urgênciasToolStripMenuItem.Text = "Urgências";
-            this.urgênciasToolStripMenuItem.Click += new System.EventHandler(this.urgênciasToolStripMenuItem_Click);
             // 
             // carrinhasToolStripMenuItem
             // 
@@ -166,6 +139,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.button4);
             this.groupBox2.Controls.Add(this.button2);
             this.groupBox2.Controls.Add(this.button1);
             this.groupBox2.Location = new System.Drawing.Point(62, 65);
@@ -173,6 +147,16 @@
             this.groupBox2.Size = new System.Drawing.Size(662, 140);
             this.groupBox2.TabIndex = 9;
             this.groupBox2.TabStop = false;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(280, 19);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(120, 80);
+            this.button4.TabIndex = 3;
+            this.button4.Text = "Urgências";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // FormPrincipal
             // 
@@ -201,9 +185,6 @@
         #endregion
 
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem utentesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem urgênciasToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem pesquisarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem carrinhasToolStripMenuItem;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
@@ -214,6 +195,7 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button button4;
     }
 }
 

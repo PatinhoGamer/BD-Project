@@ -105,5 +105,12 @@ namespace BD_Trab
                 MessageBox.Show("Login Error!");
             }
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Urgencias Purge = new Urgencias(this);
+            Purge.Show();
+            Hide();
+        }
     }
 }

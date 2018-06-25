@@ -12,9 +12,31 @@ namespace BD_Trab
 {
     public partial class Urgencias : Form
     {
-        public Urgencias()
+        private FormPrincipal principal;
+        private bool checkClose = true;
+
+        public Urgencias(Form form)
         {
             InitializeComponent();
+            principal = (FormPrincipal)form;
+        }
+
+        private void Urgencias_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Urgencias_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (checkClose)
+                principal.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            checkClose = false;
+            principal.Show();
+            Hide();
         }
     }
 }
