@@ -13,6 +13,9 @@ namespace BD_Trab
     public partial class Trabalhadores : Form
     {
         private FormPrincipal principal;
+        private string search;
+        private string filter;
+
         public Trabalhadores(Form form)
         {
             principal = (FormPrincipal)form;
@@ -31,7 +34,7 @@ namespace BD_Trab
         {
             // TODO: esta linha de código carrega dados na tabela 'bD.TRABALHADOR'. Você pode movê-la ou removê-la conforme necessário.
             this.tRABALHADORTableAdapter.Fill(this.bD.TRABALHADOR);
-
+            this.comboBox1.SelectedIndex = 0;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -42,7 +45,8 @@ namespace BD_Trab
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.Validate();
+            if (!this.Validate())
+                MessageBox.Show("Not Valid!");
             this.tRABALHADORBindingSource.EndEdit();
             this.tableAdapterManager.UpdateAll(this.bD);
         }
@@ -58,6 +62,25 @@ namespace BD_Trab
             principal.Show();
             Close();
         }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            filter = this.comboBox1.SelectedItem.ToString().ToUpper();
+            //this.nOMEListBox.DisplayMember = filter;
+        }
+
+        private void Trabalhadores_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            principal.Close();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            search = this.textBox1.ToString();
+            MessageBox.Show(search);
+            tRABALHADORBindingSource.Filter = string.Format("{0} LIKE '%{1}%'",filter,search);
+        }
+
 
 
         /*

@@ -387,6 +387,7 @@
             this.Name = "Utente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Utente";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Utente_FormClosing);
             this.Load += new System.EventHandler(this.Utente_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bd1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.uTENTEBindingSource)).EndInit();

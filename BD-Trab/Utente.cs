@@ -58,5 +58,10 @@ namespace BD_Trab
             principal.Show();
             Hide();
         }
+
+        private void Utente_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            principal.Close();
+        }
     }
 }
