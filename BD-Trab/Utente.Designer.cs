@@ -214,7 +214,6 @@
             this.nOMEListBox.Name = "nOMEListBox";
             this.nOMEListBox.Size = new System.Drawing.Size(262, 303);
             this.nOMEListBox.TabIndex = 4;
-            this.nOMEListBox.SelectedIndexChanged += new System.EventHandler(this.nOMEListBox_SelectedIndexChanged);
             // 
             // button4
             // 

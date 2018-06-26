@@ -23,14 +23,6 @@ namespace BD_Trab
             InitializeComponent();
         }
 
-        private void uTENTEBindingNavigatorSaveItem_Click(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.uTENTEBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.bd1);
-
-        }
-
         private void Utente_Load(object sender, EventArgs e)
         {
             // TODO: esta linha de código carrega dados na tabela 'bd1.UTENTE'. Você pode movê-la ou removê-la conforme necessário.
@@ -51,7 +43,14 @@ namespace BD_Trab
             this.uTENTEBindingSource.EndEdit();
             this.uTENTEBindingSource.AddNew();
             this.uTENTEBindingSource.RemoveCurrent();
-            this.uTENTETableAdapter.Update(this.bd1.UTENTE);
+            try
+            {
+                this.tableAdapterManager.UpdateAll(this.bd1);
+            }
+            catch
+            {
+                MessageBox.Show("Existe Algum Valor Inválido");
+            }
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -59,8 +58,14 @@ namespace BD_Trab
             this.uTENTEBindingSource.RemoveCurrent();
         }
 
+        public void SetCheckClose(bool x)
+        {
+            checkClose = x;
+        }
+
         private void button4_Click(object sender, EventArgs e)
         {
+            this.uTENTEBindingSource.EndEdit();
             this.uTENTEBindingSource.AddNew();
             this.uTENTEBindingSource.RemoveCurrent();
             this.tableAdapterManager.UpdateAll(this.bd1);
@@ -71,12 +76,8 @@ namespace BD_Trab
 
         private void Utente_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if(checkClose)
+            if (checkClose)
                 principal.Close();
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -94,11 +95,6 @@ namespace BD_Trab
             }
             else
                 uTENTEBindingSource.Filter = string.Format("{0} LIKE '%{1}%'", filter, search);
-        }
-
-        private void nOMEListBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

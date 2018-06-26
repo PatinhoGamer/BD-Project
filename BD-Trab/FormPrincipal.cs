@@ -77,16 +77,12 @@ namespace BD_Trab
             Ptrab.Show();
             Hide();
         }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
+        
         private void button2_Click(object sender, EventArgs e)
         {
             if (Putente == null)
                 Putente = new Utente(this);
+            Putente.SetCheckClose(true);
             Putente.Show();
             Hide();
         }
