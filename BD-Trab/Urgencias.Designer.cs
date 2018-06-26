@@ -39,8 +39,10 @@
             System.Windows.Forms.Label label3;
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.iD_URGENCIATextBox1 = new System.Windows.Forms.TextBox();
             this.tRABURGBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bD = new BD_Trab.BD();
+            this.iD_TRABALHADORTextBox1 = new System.Windows.Forms.TextBox();
             this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.iD_TRABALHADORListBox = new System.Windows.Forms.ListBox();
@@ -150,13 +152,15 @@
             label3.AutoSize = true;
             label3.Location = new System.Drawing.Point(347, 256);
             label3.Name = "label3";
-            label3.Size = new System.Drawing.Size(102, 13);
+            label3.Size = new System.Drawing.Size(105, 13);
             label3.TabIndex = 23;
-            label3.Text = "ID Outros Ajudantes";
+            label3.Text = "ID Outros Ajudantes:";
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.textBox1);
+            this.groupBox2.Controls.Add(this.iD_URGENCIATextBox1);
+            this.groupBox2.Controls.Add(this.iD_TRABALHADORTextBox1);
             this.groupBox2.Controls.Add(this.button6);
             this.groupBox2.Controls.Add(this.button5);
             this.groupBox2.Controls.Add(this.iD_TRABALHADORListBox);
@@ -188,11 +192,18 @@
             // 
             // textBox1
             // 
-            this.textBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tRABURGBindingSource, "ID_TRABALHADOR", true));
             this.textBox1.Location = new System.Drawing.Point(552, 256);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(106, 20);
-            this.textBox1.TabIndex = 28;
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 32;
+            //
+            // iD_URGENCIATextBox1
+            // 
+            this.iD_URGENCIATextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tRABURGBindingSource, "ID_URGENCIA", true));
+            this.iD_URGENCIATextBox1.Location = new System.Drawing.Point(294, 311);
+            this.iD_URGENCIATextBox1.Name = "iD_URGENCIATextBox1";
+            this.iD_URGENCIATextBox1.Size = new System.Drawing.Size(100, 20);
+            this.iD_URGENCIATextBox1.TabIndex = 29;
             // 
             // tRABURGBindingSource
             // 
@@ -203,6 +214,14 @@
             // 
             this.bD.DataSetName = "BD";
             this.bD.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // iD_TRABALHADORTextBox1
+            // 
+            this.iD_TRABALHADORTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tRABURGBindingSource, "ID_TRABALHADOR", true));
+            this.iD_TRABALHADORTextBox1.Location = new System.Drawing.Point(294, 337);
+            this.iD_TRABALHADORTextBox1.Name = "iD_TRABALHADORTextBox1";
+            this.iD_TRABALHADORTextBox1.Size = new System.Drawing.Size(100, 20);
+            this.iD_TRABALHADORTextBox1.TabIndex = 31;
             // 
             // button6
             // 
@@ -325,7 +344,7 @@
             "ID_Urgencia",
             "ID_Utente",
             "ID_Trabalhador",
-            "Data",
+            "Data_",
             "Descricao"});
             this.comboBox1.Location = new System.Drawing.Point(89, 16);
             this.comboBox1.Name = "comboBox1";
@@ -452,6 +471,8 @@
         private BDTableAdapters.TRABURGTableAdapter tRABURGTableAdapter;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.TextBox iD_URGENCIATextBox1;
+        private System.Windows.Forms.TextBox iD_TRABALHADORTextBox1;
         private System.Windows.Forms.TextBox textBox1;
     }
 }

@@ -37,6 +37,8 @@ namespace BD_Trab
             this.uRGENCIATableAdapter.Fill(this.bD.URGENCIA);
 
             this.comboBox1.SelectedIndex = 0;
+            id_urgencia = int.Parse(iD_URGENCIATextBox.Text);
+            tRABURGBindingSource.Filter = string.Format("ID_Urgencia = {0}", id_urgencia);
         }
 
         private void Urgencias_FormClosing(object sender, FormClosingEventArgs e)
@@ -55,7 +57,7 @@ namespace BD_Trab
                 else
                     uRGENCIABindingSource.Filter = "";
             }
-            else if (filter.Substring(0, 2) == "Da")
+            else if (filter.Substring(0, 2) == "DA")
             {
                 try
                 {
@@ -103,19 +105,21 @@ namespace BD_Trab
             uRGENCIABindingSource.EndEdit();
             uRGENCIABindingSource.AddNew();
             uRGENCIABindingSource.RemoveCurrent();
+            tRABURGBindingSource.EndEdit();
+            tRABURGBindingSource.AddNew();
+            tRABURGBindingSource.RemoveCurrent();
             tableAdapterManager.UpdateAll(bD);
+
+
         }
 
         private void iD_URGENCIAListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            id_urgencia = int.Parse(iD_URGENCIATextBox.Text);
-
-            tRABURGBindingSource.Filter = string.Format("ID_Urgencia = {0}", id_urgencia);
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-            tRABURGBindingSource.AddNew();
+            try
+            {
+                tRABURGBindingSource.Filter = string.Format("ID_Urgencia = {0}", iD_URGENCIATextBox.Text);
+            }
+            catch { }
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -138,6 +142,15 @@ namespace BD_Trab
         public void SetCheckClose(bool x)
         {
             checkClose = x;
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            tRABURGBindingSource.AddNew();
+            iD_TRABALHADORTextBox1.Text = textBox1.Text;
+            iD_URGENCIATextBox1.Text = iD_URGENCIATextBox.Text;
+            tRABURGBindingSource.EndEdit();
+
         }
     }
 }
