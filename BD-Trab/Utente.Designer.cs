@@ -35,26 +35,10 @@
             System.Windows.Forms.Label gENEROLabel;
             System.Windows.Forms.Label mORADALabel;
             System.Windows.Forms.Label label1;
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Utente));
             this.bd1 = new BD_Trab.BD();
             this.uTENTEBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.uTENTETableAdapter = new BD_Trab.BDTableAdapters.UTENTETableAdapter();
             this.tableAdapterManager = new BD_Trab.BDTableAdapters.TableAdapterManager();
-            this.uTENTEBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
-            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
-            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
-            this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.uTENTEBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button5 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.iD_UTENTETextBox = new System.Windows.Forms.TextBox();
             this.gENEROTextBox = new System.Windows.Forms.TextBox();
@@ -75,25 +59,22 @@
             label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.bd1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uTENTEBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uTENTEBindingNavigator)).BeginInit();
-            this.uTENTEBindingNavigator.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // nOMELabel
             // 
             nOMELabel.AutoSize = true;
-            nOMELabel.Location = new System.Drawing.Point(26, 36);
+            nOMELabel.Location = new System.Drawing.Point(4, 16);
             nOMELabel.Name = "nOMELabel";
-            nOMELabel.Size = new System.Drawing.Size(42, 13);
+            nOMELabel.Size = new System.Drawing.Size(69, 13);
             nOMELabel.TabIndex = 3;
-            nOMELabel.Text = "NOME:";
+            nOMELabel.Text = "Procurar Por:";
             // 
             // iD_UTENTELabel
             // 
             iD_UTENTELabel.AutoSize = true;
-            iD_UTENTELabel.Location = new System.Drawing.Point(51, 53);
+            iD_UTENTELabel.Location = new System.Drawing.Point(295, 215);
             iD_UTENTELabel.Name = "iD_UTENTELabel";
             iD_UTENTELabel.Size = new System.Drawing.Size(68, 13);
             iD_UTENTELabel.TabIndex = 10;
@@ -102,7 +83,7 @@
             // nOMELabel1
             // 
             nOMELabel1.AutoSize = true;
-            nOMELabel1.Location = new System.Drawing.Point(51, 76);
+            nOMELabel1.Location = new System.Drawing.Point(295, 238);
             nOMELabel1.Name = "nOMELabel1";
             nOMELabel1.Size = new System.Drawing.Size(42, 13);
             nOMELabel1.TabIndex = 12;
@@ -111,7 +92,7 @@
             // gENEROLabel
             // 
             gENEROLabel.AutoSize = true;
-            gENEROLabel.Location = new System.Drawing.Point(49, 105);
+            gENEROLabel.Location = new System.Drawing.Point(293, 267);
             gENEROLabel.Name = "gENEROLabel";
             gENEROLabel.Size = new System.Drawing.Size(56, 13);
             gENEROLabel.TabIndex = 14;
@@ -120,7 +101,7 @@
             // mORADALabel
             // 
             mORADALabel.AutoSize = true;
-            mORADALabel.Location = new System.Drawing.Point(49, 131);
+            mORADALabel.Location = new System.Drawing.Point(293, 293);
             mORADALabel.Name = "mORADALabel";
             mORADALabel.Size = new System.Drawing.Size(57, 13);
             mORADALabel.TabIndex = 16;
@@ -129,11 +110,11 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new System.Drawing.Point(249, 36);
+            label1.Location = new System.Drawing.Point(4, 57);
             label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(42, 13);
+            label1.Size = new System.Drawing.Size(53, 13);
             label1.TabIndex = 8;
-            label1.Text = "NOME:";
+            label1.Text = "Pesquisa:";
             // 
             // bd1
             // 
@@ -159,218 +140,66 @@
             this.tableAdapterManager.URGENCIATableAdapter = null;
             this.tableAdapterManager.UTENTETableAdapter = this.uTENTETableAdapter;
             // 
-            // uTENTEBindingNavigator
-            // 
-            this.uTENTEBindingNavigator.AddNewItem = this.bindingNavigatorAddNewItem;
-            this.uTENTEBindingNavigator.BindingSource = this.uTENTEBindingSource;
-            this.uTENTEBindingNavigator.CountItem = this.bindingNavigatorCountItem;
-            this.uTENTEBindingNavigator.DeleteItem = this.bindingNavigatorDeleteItem;
-            this.uTENTEBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.bindingNavigatorMoveFirstItem,
-            this.bindingNavigatorMovePreviousItem,
-            this.bindingNavigatorSeparator,
-            this.bindingNavigatorPositionItem,
-            this.bindingNavigatorCountItem,
-            this.bindingNavigatorSeparator1,
-            this.bindingNavigatorMoveNextItem,
-            this.bindingNavigatorMoveLastItem,
-            this.bindingNavigatorSeparator2,
-            this.bindingNavigatorAddNewItem,
-            this.bindingNavigatorDeleteItem,
-            this.uTENTEBindingNavigatorSaveItem});
-            this.uTENTEBindingNavigator.Location = new System.Drawing.Point(0, 0);
-            this.uTENTEBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
-            this.uTENTEBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
-            this.uTENTEBindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem;
-            this.uTENTEBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
-            this.uTENTEBindingNavigator.Name = "uTENTEBindingNavigator";
-            this.uTENTEBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.uTENTEBindingNavigator.Size = new System.Drawing.Size(800, 25);
-            this.uTENTEBindingNavigator.TabIndex = 0;
-            this.uTENTEBindingNavigator.Text = "bindingNavigator1";
-            // 
-            // bindingNavigatorAddNewItem
-            // 
-            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
-            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
-            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorAddNewItem.Text = "Adicionar novo";
-            // 
-            // bindingNavigatorCountItem
-            // 
-            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 22);
-            this.bindingNavigatorCountItem.Text = "of {0}";
-            this.bindingNavigatorCountItem.ToolTipText = "Número total de itens";
-            // 
-            // bindingNavigatorDeleteItem
-            // 
-            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
-            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
-            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorDeleteItem.Text = "Eliminar";
-            // 
-            // bindingNavigatorMoveFirstItem
-            // 
-            this.bindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
-            this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
-            this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMoveFirstItem.Text = "Mover primeiro";
-            // 
-            // bindingNavigatorMovePreviousItem
-            // 
-            this.bindingNavigatorMovePreviousItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
-            this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
-            this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMovePreviousItem.Text = "Mover anterior";
-            // 
-            // bindingNavigatorSeparator
-            // 
-            this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 25);
-            // 
-            // bindingNavigatorPositionItem
-            // 
-            this.bindingNavigatorPositionItem.AccessibleName = "Posição";
-            this.bindingNavigatorPositionItem.AutoSize = false;
-            this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
-            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
-            this.bindingNavigatorPositionItem.Text = "0";
-            this.bindingNavigatorPositionItem.ToolTipText = "Posição actual";
-            // 
-            // bindingNavigatorSeparator1
-            // 
-            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 25);
-            // 
-            // bindingNavigatorMoveNextItem
-            // 
-            this.bindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
-            this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
-            this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMoveNextItem.Text = "Mover seguinte";
-            // 
-            // bindingNavigatorMoveLastItem
-            // 
-            this.bindingNavigatorMoveLastItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
-            this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
-            this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMoveLastItem.Text = "Mover último";
-            // 
-            // bindingNavigatorSeparator2
-            // 
-            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
-            // 
-            // uTENTEBindingNavigatorSaveItem
-            // 
-            this.uTENTEBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.uTENTEBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("uTENTEBindingNavigatorSaveItem.Image")));
-            this.uTENTEBindingNavigatorSaveItem.Name = "uTENTEBindingNavigatorSaveItem";
-            this.uTENTEBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
-            this.uTENTEBindingNavigatorSaveItem.Text = "Salvar Dados";
-            this.uTENTEBindingNavigatorSaveItem.Click += new System.EventHandler(this.uTENTEBindingNavigatorSaveItem_Click);
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.button5);
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Controls.Add(iD_UTENTELabel);
-            this.groupBox1.Controls.Add(this.iD_UTENTETextBox);
-            this.groupBox1.Controls.Add(nOMELabel1);
-            this.groupBox1.Controls.Add(gENEROLabel);
-            this.groupBox1.Controls.Add(this.gENEROTextBox);
-            this.groupBox1.Controls.Add(mORADALabel);
-            this.groupBox1.Controls.Add(this.mORADATextBox);
-            this.groupBox1.Location = new System.Drawing.Point(12, 28);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(777, 414);
-            this.groupBox1.TabIndex = 3;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(309, 266);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(135, 47);
-            this.button5.TabIndex = 19;
-            this.button5.Text = "Voltar";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
-            // 
             // textBox1
             // 
             this.textBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.uTENTEBindingSource, "NOME", true));
-            this.textBox1.Location = new System.Drawing.Point(156, 76);
+            this.textBox1.Location = new System.Drawing.Point(400, 238);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(176, 20);
+            this.textBox1.Size = new System.Drawing.Size(316, 20);
             this.textBox1.TabIndex = 18;
             // 
             // iD_UTENTETextBox
             // 
             this.iD_UTENTETextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.uTENTEBindingSource, "ID_UTENTE", true));
-            this.iD_UTENTETextBox.Location = new System.Drawing.Point(156, 50);
+            this.iD_UTENTETextBox.Location = new System.Drawing.Point(400, 212);
             this.iD_UTENTETextBox.Name = "iD_UTENTETextBox";
             this.iD_UTENTETextBox.ReadOnly = true;
-            this.iD_UTENTETextBox.Size = new System.Drawing.Size(176, 20);
+            this.iD_UTENTETextBox.Size = new System.Drawing.Size(316, 20);
             this.iD_UTENTETextBox.TabIndex = 11;
             // 
             // gENEROTextBox
             // 
             this.gENEROTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.uTENTEBindingSource, "GENERO", true));
-            this.gENEROTextBox.Location = new System.Drawing.Point(156, 102);
+            this.gENEROTextBox.Location = new System.Drawing.Point(400, 264);
             this.gENEROTextBox.Name = "gENEROTextBox";
-            this.gENEROTextBox.Size = new System.Drawing.Size(176, 20);
+            this.gENEROTextBox.Size = new System.Drawing.Size(316, 20);
             this.gENEROTextBox.TabIndex = 15;
             // 
             // mORADATextBox
             // 
             this.mORADATextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.uTENTEBindingSource, "MORADA", true));
-            this.mORADATextBox.Location = new System.Drawing.Point(156, 128);
+            this.mORADATextBox.Location = new System.Drawing.Point(400, 290);
             this.mORADATextBox.Name = "mORADATextBox";
-            this.mORADATextBox.Size = new System.Drawing.Size(176, 20);
+            this.mORADATextBox.Size = new System.Drawing.Size(316, 20);
             this.mORADATextBox.TabIndex = 17;
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(507, 190);
+            this.button3.Location = new System.Drawing.Point(640, 124);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(220, 80);
+            this.button3.Size = new System.Drawing.Size(130, 29);
             this.button3.TabIndex = 10;
-            this.button3.Text = "Apagar";
+            this.button3.Text = "Apagar Selecionado";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(507, 112);
+            this.button2.Location = new System.Drawing.Point(464, 124);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(220, 72);
+            this.button2.Size = new System.Drawing.Size(145, 34);
             this.button2.TabIndex = 9;
-            this.button2.Text = "Alterar";
+            this.button2.Text = "Alterar/Guardar";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(507, 30);
+            this.button1.Location = new System.Drawing.Point(298, 121);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(220, 72);
+            this.button1.Size = new System.Drawing.Size(122, 37);
             this.button1.TabIndex = 8;
-            this.button1.Text = "Adicionar";
+            this.button1.Text = "Adicionar Novo";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -381,44 +210,52 @@
             this.nOMEListBox.DataSource = this.uTENTEBindingSource;
             this.nOMEListBox.DisplayMember = "NOME";
             this.nOMEListBox.FormattingEnabled = true;
-            this.nOMEListBox.Location = new System.Drawing.Point(29, 60);
+            this.nOMEListBox.Location = new System.Drawing.Point(7, 107);
             this.nOMEListBox.Name = "nOMEListBox";
-            this.nOMEListBox.Size = new System.Drawing.Size(423, 316);
+            this.nOMEListBox.Size = new System.Drawing.Size(262, 303);
             this.nOMEListBox.TabIndex = 4;
             this.nOMEListBox.SelectedIndexChanged += new System.EventHandler(this.nOMEListBox_SelectedIndexChanged);
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(592, 314);
+            this.button4.Location = new System.Drawing.Point(618, 359);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(135, 47);
             this.button4.TabIndex = 5;
-            this.button4.Text = "Voltar";
+            this.button4.Text = "Voltar ao Menu Principal";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(label1);
+            this.groupBox2.Controls.Add(this.textBox1);
             this.groupBox2.Controls.Add(this.button4);
+            this.groupBox2.Controls.Add(iD_UTENTELabel);
+            this.groupBox2.Controls.Add(this.iD_UTENTETextBox);
             this.groupBox2.Controls.Add(this.textBox2);
+            this.groupBox2.Controls.Add(nOMELabel1);
             this.groupBox2.Controls.Add(this.comboBox1);
+            this.groupBox2.Controls.Add(gENEROLabel);
             this.groupBox2.Controls.Add(this.nOMEListBox);
+            this.groupBox2.Controls.Add(this.gENEROTextBox);
             this.groupBox2.Controls.Add(nOMELabel);
+            this.groupBox2.Controls.Add(mORADALabel);
             this.groupBox2.Controls.Add(this.button1);
+            this.groupBox2.Controls.Add(this.mORADATextBox);
             this.groupBox2.Controls.Add(this.button2);
             this.groupBox2.Controls.Add(this.button3);
-            this.groupBox2.Location = new System.Drawing.Point(12, 28);
+            this.groupBox2.Location = new System.Drawing.Point(12, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(777, 414);
+            this.groupBox2.Size = new System.Drawing.Size(776, 426);
             this.groupBox2.TabIndex = 6;
             this.groupBox2.TabStop = false;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(297, 33);
+            this.textBox2.Location = new System.Drawing.Point(89, 57);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(155, 20);
+            this.textBox2.Size = new System.Drawing.Size(180, 20);
             this.textBox2.TabIndex = 7;
             this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
@@ -430,9 +267,9 @@
             "ID_Utente",
             "Genero",
             "Morada"});
-            this.comboBox1.Location = new System.Drawing.Point(74, 33);
+            this.comboBox1.Location = new System.Drawing.Point(89, 16);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(155, 21);
+            this.comboBox1.Size = new System.Drawing.Size(180, 21);
             this.comboBox1.TabIndex = 6;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
@@ -442,8 +279,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.uTENTEBindingNavigator);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "Utente";
@@ -453,15 +288,9 @@
             this.Load += new System.EventHandler(this.Utente_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bd1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.uTENTEBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uTENTEBindingNavigator)).EndInit();
-            this.uTENTEBindingNavigator.ResumeLayout(false);
-            this.uTENTEBindingNavigator.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -471,20 +300,6 @@
         private System.Windows.Forms.BindingSource uTENTEBindingSource;
         private BDTableAdapters.UTENTETableAdapter uTENTETableAdapter;
         private BDTableAdapters.TableAdapterManager tableAdapterManager;
-        private System.Windows.Forms.BindingNavigator uTENTEBindingNavigator;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
-        private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorDeleteItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveFirstItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMovePreviousItem;
-        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator;
-        private System.Windows.Forms.ToolStripTextBox bindingNavigatorPositionItem;
-        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator1;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveNextItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
-        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
-        private System.Windows.Forms.ToolStripButton uTENTEBindingNavigatorSaveItem;
-        private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
@@ -497,6 +312,5 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Button button5;
     }
 }

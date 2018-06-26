@@ -83,14 +83,14 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(143, 48);
+            this.textBox1.Location = new System.Drawing.Point(100, 29);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 3;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(143, 74);
+            this.textBox2.Location = new System.Drawing.Point(100, 55);
             this.textBox2.Name = "textBox2";
             this.textBox2.PasswordChar = '*';
             this.textBox2.Size = new System.Drawing.Size(100, 20);
@@ -99,7 +99,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(69, 51);
+            this.label1.Location = new System.Drawing.Point(26, 32);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(50, 13);
             this.label1.TabIndex = 5;
@@ -108,7 +108,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(69, 77);
+            this.label2.Location = new System.Drawing.Point(26, 58);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(53, 13);
             this.label2.TabIndex = 6;
@@ -116,7 +116,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(143, 100);
+            this.button3.Location = new System.Drawing.Point(100, 81);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(100, 23);
             this.button3.TabIndex = 7;
@@ -131,9 +131,9 @@
             this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.textBox2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(244, 211);
+            this.groupBox1.Location = new System.Drawing.Point(266, 130);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(305, 170);
+            this.groupBox1.Size = new System.Drawing.Size(237, 130);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             // 
@@ -142,9 +142,9 @@
             this.groupBox2.Controls.Add(this.button4);
             this.groupBox2.Controls.Add(this.button2);
             this.groupBox2.Controls.Add(this.button1);
-            this.groupBox2.Location = new System.Drawing.Point(62, 65);
+            this.groupBox2.Location = new System.Drawing.Point(64, 149);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(662, 140);
+            this.groupBox2.Size = new System.Drawing.Size(662, 115);
             this.groupBox2.TabIndex = 9;
             this.groupBox2.TabStop = false;
             // 

@@ -21,7 +21,6 @@ namespace BD_Trab
         {
             principal = (FormPrincipal)form;
             InitializeComponent();
-            groupBox1.Hide();
         }
 
         private void tRABALHADORBindingNavigatorSaveItem_Click(object sender, EventArgs e)
@@ -41,19 +40,18 @@ namespace BD_Trab
 
         private void button2_Click(object sender, EventArgs e)
         {
-
-            groupBox2.Hide();
-            groupBox1.Show();
-
             this.tRABALHADORBindingSource.AddNew();
-
             this.iD_TRABALHADORTextBox.Text = this.tRABALHADORTableAdapter.GetNextID_Trabalhador().ToString();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            groupBox2.Hide();
-            groupBox1.Show();
+            if (!this.Validate())
+                MessageBox.Show("Informação Inválida!");
+            this.tRABALHADORBindingSource.EndEdit();
+            this.tRABALHADORBindingSource.AddNew();
+            this.tRABALHADORBindingSource.RemoveCurrent();
+            this.tableAdapterManager.UpdateAll(this.bD);
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -63,9 +61,11 @@ namespace BD_Trab
 
         private void button4_Click(object sender, EventArgs e)
         {
+            this.tRABALHADORBindingSource.EndEdit();
             this.tRABALHADORBindingSource.AddNew();
             this.tRABALHADORBindingSource.RemoveCurrent();
-            this.tRABALHADORTableAdapter.Update(this.bD.TRABALHADOR);
+            this.tableAdapterManager.UpdateAll(this.bD);
+            this.Refresh();
             checkClose = false;
             principal.Show();
             Close();
@@ -93,18 +93,6 @@ namespace BD_Trab
             }
             else
                 tRABALHADORBindingSource.Filter = string.Format("{0} LIKE '%{1}%'", filter, search);
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-            groupBox1.Hide();
-            groupBox2.Show();
-            if (!this.Validate())
-                MessageBox.Show("Not Valid!");
-            this.tRABALHADORBindingSource.EndEdit();
-            this.tRABALHADORBindingSource.AddNew();
-            this.tRABALHADORBindingSource.RemoveCurrent();
-            this.tRABALHADORTableAdapter.Update(this.bD.TRABALHADOR);
         }
 
 

@@ -40,34 +40,33 @@ namespace BD_Trab
 
         private void button1_Click(object sender, EventArgs e)
         {
-            groupBox2.Hide();
-            groupBox1.Show();
             this.uTENTEBindingSource.AddNew();
             this.iD_UTENTETextBox.Text = this.uTENTETableAdapter.GetNextID_Utente().ToString();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            groupBox2.Hide();
-            groupBox1.Show();
-            this.Validate();
+            if (!this.Validate())
+                MessageBox.Show("Informação Inválida!");
             this.uTENTEBindingSource.EndEdit();
             this.uTENTEBindingSource.AddNew();
             this.uTENTEBindingSource.RemoveCurrent();
-            this.tableAdapterManager.UpdateAll(this.bd1);
+            this.uTENTETableAdapter.Update(this.bd1.UTENTE);
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             this.uTENTEBindingSource.RemoveCurrent();
-            this.tableAdapterManager.UpdateAll(this.bd1);
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
+            this.uTENTEBindingSource.AddNew();
+            this.uTENTEBindingSource.RemoveCurrent();
+            this.tableAdapterManager.UpdateAll(this.bd1);
             checkClose = false;
             principal.Show();
-            Hide();
+            Close();
         }
 
         private void Utente_FormClosing(object sender, FormClosingEventArgs e)
@@ -78,8 +77,6 @@ namespace BD_Trab
 
         private void button5_Click(object sender, EventArgs e)
         {
-            groupBox1.Hide();
-            groupBox2.Show();
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
