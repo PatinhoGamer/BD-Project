@@ -66,7 +66,7 @@ namespace BD_Trab
             this.tableAdapterManager.UpdateAll(this.bd1);
             checkClose = false;
             principal.Show();
-            Close();
+            Hide();
         }
 
         private void Utente_FormClosing(object sender, FormClosingEventArgs e)

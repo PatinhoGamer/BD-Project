@@ -35,6 +35,7 @@ namespace BD_Trab
         {
             // TODO: esta linha de código carrega dados na tabela 'bD.TRABALHADOR'. Você pode movê-la ou removê-la conforme necessário.
             this.tRABALHADORTableAdapter.Fill(this.bD.TRABALHADOR);
+
             this.comboBox1.SelectedIndex = 0;
         }
 
@@ -68,7 +69,7 @@ namespace BD_Trab
             this.Refresh();
             checkClose = false;
             principal.Show();
-            Close();
+            Hide();
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)

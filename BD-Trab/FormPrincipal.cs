@@ -13,7 +13,9 @@ namespace BD_Trab
 {
     public partial class FormPrincipal : Form
     {
-        
+        private Urgencias Purge;
+        private Utente Putente;
+        private Trabalhadores Ptrab;
 
         public FormPrincipal()
         {
@@ -35,12 +37,12 @@ namespace BD_Trab
 
         private void consultarToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private void utentesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void trabalhadoresToolStripMenuItem_Click(object sender, EventArgs e)
@@ -50,7 +52,7 @@ namespace BD_Trab
 
         private void urgênciasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void pesquisarToolStripMenuItem_Click(object sender, EventArgs e)
@@ -70,9 +72,10 @@ namespace BD_Trab
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Trabalhadores Check = new Trabalhadores(this);
-            Check.Show();
-            Hide();   
+            if (Ptrab == null)
+                Ptrab = new Trabalhadores(this);
+            Ptrab.Show();
+            Hide();
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -82,7 +85,8 @@ namespace BD_Trab
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Utente Putente = new Utente(this);
+            if (Putente == null)
+                Putente = new Utente(this);
             Putente.Show();
             Hide();
         }
@@ -108,9 +112,10 @@ namespace BD_Trab
 
         private void button4_Click(object sender, EventArgs e)
         {
-            Urgencias Purge = new Urgencias(this);
+            if (Purge == null)
+                Purge = new Urgencias(this);
             Purge.Show();
-            Hide();
+            //Hide();
         }
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -16,6 +17,7 @@ namespace BD_Trab
         private bool checkClose = true;
         private string search;
         private string filter;
+        private int id_urgencia;
 
         public Urgencias(Form form)
         {
@@ -25,35 +27,22 @@ namespace BD_Trab
 
         private void Urgencias_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'bD.TRABURG' table. You can move, or remove it, as needed.
+            this.tRABURGTableAdapter.Fill(this.bD.TRABURG);
+            // TODO: This line of code loads data into the 'bD.TRABALHADOR' table. You can move, or remove it, as needed.
+            this.tRABALHADORTableAdapter.Fill(this.bD.TRABALHADOR);
             // TODO: This line of code loads data into the 'bD.UTENTE' table. You can move, or remove it, as needed.
             this.uTENTETableAdapter.Fill(this.bD.UTENTE);
             // TODO: This line of code loads data into the 'bD.URGENCIA' table. You can move, or remove it, as needed.
             this.uRGENCIATableAdapter.Fill(this.bD.URGENCIA);
 
+            this.comboBox1.SelectedIndex = 0;
         }
 
         private void Urgencias_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (checkClose)
                 principal.Close();
-        }
-
-        private void uRGENCIABindingNavigatorSaveItem_Click(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.uRGENCIABindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.bD);
-
-        }
-
-        private void iD_URGENCIAListBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void iD_URGENCIATextBox_TextChanged(object sender, EventArgs e)
-        {
-            
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
@@ -63,10 +52,22 @@ namespace BD_Trab
             {
                 if (int.TryParse(search, out int id))
                     uRGENCIABindingSource.Filter = string.Format("{0} = {1}", filter, id);
+                else
+                    uRGENCIABindingSource.Filter = "";
             }
-            else if(filter[0] == 'D')
+            else if (filter.Substring(0,2) == "Da")
             {
-                uRGENCIABindingSource.Filter = string.Format("TO_CHAR(DATA_,'DD-MM-YYYY') like '%{0}%'",search);
+                try
+                {
+                    String[] array = search.Split('/');
+
+                    DateTime date = new DateTime(int.Parse(array[0]), int.Parse(array[1]), int.Parse(array[1]));
+
+                    uRGENCIABindingSource.Filter = String.Format("DATA_ = '{0:YYYY-MM-DD}'", search);
+                }
+                catch { }
+
+                //uRGENCIABindingSource.Filter = "TO_CHAR(DATA_,'YYYY-MM-DD') like '%" + search + "%'";
             }
             else
                 uRGENCIABindingSource.Filter = string.Format("{0} LIKE '%{1}%'", filter, search);
@@ -87,12 +88,42 @@ namespace BD_Trab
         {
             checkClose = false;
             principal.Show();
-            Hide();
+            this.Hide();
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
+        private void groupBox2_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            uRGENCIABindingSource.AddNew();
+            //iD_URGENCIATextBox.Text = uRGENCIATableAdapter.GetNextID_Urgencia().ToString();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            uRGENCIABindingSource.EndEdit();
+            uRGENCIABindingSource.AddNew();
+            uRGENCIABindingSource.RemoveCurrent();
+            tableAdapterManager.UpdateAll(bD);
+        }
+
+        private void iD_URGENCIAListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            /*string connstr = @"Server=.\SQLEXPRESS ;Initial Catalog=RPSJDB;Integrated Security=True;";
+             string query = "Select ID_Trabalhador" +
+                            " From TrabUrg" +
+                            " Where ID_Urgencia = " + id_urgencia;
+             SqlDataAdapter adapter = new SqlDataAdapter(query, connstr);
+             DataTable table = new DataTable();
+             adapter.Fill(table);
+             BindingSource bindingSource1 = new BindingSource();
+             BindingSource bindingSource1.DataSource = table;*/
+            id_urgencia = int.Parse(iD_URGENCIATextBox.Text);
+
+            tRABURGBindingSource.Filter = string.Format("ID_Urgencia = {0}",id_urgencia);
         }
     }
 }
