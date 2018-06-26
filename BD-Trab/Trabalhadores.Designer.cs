@@ -55,9 +55,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
             iD_TRABALHADORLabel = new System.Windows.Forms.Label();
             nOMELabel = new System.Windows.Forms.Label();
             gENEROLabel = new System.Windows.Forms.Label();
@@ -169,7 +169,7 @@
             // eNCARGOTextBox
             // 
             this.eNCARGOTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tRABALHADORBindingSource, "ENCARGO", true));
-            this.eNCARGOTextBox.Location = new System.Drawing.Point(426, 386);
+            this.eNCARGOTextBox.Location = new System.Drawing.Point(405, 378);
             this.eNCARGOTextBox.Name = "eNCARGOTextBox";
             this.eNCARGOTextBox.Size = new System.Drawing.Size(74, 20);
             this.eNCARGOTextBox.TabIndex = 9;
@@ -251,6 +251,7 @@
             // 
             // comboBox1
             // 
+            this.comboBox1.CausesValidation = false;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
             "Nome",
@@ -323,39 +324,45 @@
             this.groupBox2.TabIndex = 9;
             this.groupBox2.TabStop = false;
             // 
+            // comboBox4
+            // 
+            this.comboBox4.CausesValidation = false;
+            this.comboBox4.FormattingEnabled = true;
+            this.comboBox4.Items.AddRange(new object[] {
+            "Dia",
+            "Tarde",
+            "Noite"});
+            this.comboBox4.Location = new System.Drawing.Point(439, 305);
+            this.comboBox4.Name = "comboBox4";
+            this.comboBox4.Size = new System.Drawing.Size(317, 21);
+            this.comboBox4.TabIndex = 16;
+            this.comboBox4.SelectedIndexChanged += new System.EventHandler(this.comboBox4_SelectedIndexChanged);
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.CausesValidation = false;
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Items.AddRange(new object[] {
+            "Masculino",
+            "Femenino"});
+            this.comboBox3.Location = new System.Drawing.Point(439, 225);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(317, 21);
+            this.comboBox3.TabIndex = 15;
+            this.comboBox3.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
+            // 
             // comboBox2
             // 
+            this.comboBox2.CausesValidation = false;
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Items.AddRange(new object[] {
-            "Limpeza",
-            "Enfermeiro"});
+            "Enfermeiro",
+            "Limpeza"});
             this.comboBox2.Location = new System.Drawing.Point(439, 278);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(317, 21);
             this.comboBox2.TabIndex = 14;
             this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
-            // 
-            // comboBox3
-            // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Items.AddRange(new object[] {
-            "Limpeza",
-            "Enfermeiro"});
-            this.comboBox3.Location = new System.Drawing.Point(439, 225);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(317, 21);
-            this.comboBox3.TabIndex = 15;
-            // 
-            // comboBox4
-            // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Items.AddRange(new object[] {
-            "Limpeza",
-            "Enfermeiro"});
-            this.comboBox4.Location = new System.Drawing.Point(439, 305);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(317, 21);
-            this.comboBox4.TabIndex = 16;
             // 
             // Trabalhadores
             // 

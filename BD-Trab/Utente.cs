@@ -16,6 +16,7 @@ namespace BD_Trab
         private string search;
         private string filter;
         private bool checkClose = true;
+        char[] arrayGenero = { 'M', 'F' };
 
         public Utente(Form form)
         {
@@ -28,6 +29,16 @@ namespace BD_Trab
             // TODO: esta linha de código carrega dados na tabela 'bd1.UTENTE'. Você pode movê-la ou removê-la conforme necessário.
             this.uTENTETableAdapter.Fill(this.bd1.UTENTE);
             this.comboBox1.SelectedIndex = 0;
+            try
+            {
+                for (int i = 0; i < arrayGenero.Length; i++)
+                {
+                    if (gENEROTextBox.Text[0] == arrayGenero[i])
+                        comboBox2.SelectedIndex = i;
+                }
+            }
+            catch { }
+            gENEROTextBox.Hide();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -87,7 +98,7 @@ namespace BD_Trab
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
-            search = this.textBox1.Text;
+            search = this.textBox2.Text;
             if (filter[0] == 'I')
             {
                 if (int.TryParse(search, out int id))
@@ -95,6 +106,25 @@ namespace BD_Trab
             }
             else
                 uTENTEBindingSource.Filter = string.Format("{0} LIKE '%{1}%'", filter, search);
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ComboBox me = sender as ComboBox;
+            gENEROTextBox.Text = me.Text;
+        }
+
+        private void nOMEListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                for (int i = 0; i < arrayGenero.Length; i++)
+                {
+                    if (gENEROTextBox.Text[0] == arrayGenero[i])
+                        comboBox2.SelectedIndex = i;
+                }
+            }
+            catch { }
         }
     }
 }

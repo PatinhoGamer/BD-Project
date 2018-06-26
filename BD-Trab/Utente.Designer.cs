@@ -51,6 +51,7 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
             nOMELabel = new System.Windows.Forms.Label();
             iD_UTENTELabel = new System.Windows.Forms.Label();
             nOMELabel1 = new System.Windows.Forms.Label();
@@ -160,9 +161,9 @@
             // gENEROTextBox
             // 
             this.gENEROTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.uTENTEBindingSource, "GENERO", true));
-            this.gENEROTextBox.Location = new System.Drawing.Point(400, 264);
+            this.gENEROTextBox.Location = new System.Drawing.Point(296, 359);
             this.gENEROTextBox.Name = "gENEROTextBox";
-            this.gENEROTextBox.Size = new System.Drawing.Size(316, 20);
+            this.gENEROTextBox.Size = new System.Drawing.Size(114, 20);
             this.gENEROTextBox.TabIndex = 15;
             // 
             // mORADATextBox
@@ -214,6 +215,7 @@
             this.nOMEListBox.Name = "nOMEListBox";
             this.nOMEListBox.Size = new System.Drawing.Size(262, 303);
             this.nOMEListBox.TabIndex = 4;
+            this.nOMEListBox.SelectedIndexChanged += new System.EventHandler(this.nOMEListBox_SelectedIndexChanged);
             // 
             // button4
             // 
@@ -227,6 +229,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.comboBox2);
             this.groupBox2.Controls.Add(label1);
             this.groupBox2.Controls.Add(this.textBox1);
             this.groupBox2.Controls.Add(this.button4);
@@ -260,6 +263,7 @@
             // 
             // comboBox1
             // 
+            this.comboBox1.CausesValidation = false;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
             "Nome",
@@ -271,6 +275,19 @@
             this.comboBox1.Size = new System.Drawing.Size(180, 21);
             this.comboBox1.TabIndex = 6;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.CausesValidation = false;
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Items.AddRange(new object[] {
+            "Masculino",
+            "Femenino"});
+            this.comboBox2.Location = new System.Drawing.Point(400, 264);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(316, 21);
+            this.comboBox2.TabIndex = 19;
+            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
             // Utente
             // 
@@ -311,5 +328,6 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.ComboBox comboBox2;
     }
 }

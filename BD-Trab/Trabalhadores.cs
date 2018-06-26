@@ -16,7 +16,9 @@ namespace BD_Trab
         private string search;
         private string filter;
         private bool checkClose = true;
-        string[] arrayEncargo = { "Limpeza", "Enfermeiro" };
+        char[] arrayEncargo = { 'E', 'L' };
+        char[] arrayGenero = { 'M', 'F' };
+        char[] arrayTurno = { 'D', 'T', 'N' };
 
         public Trabalhadores(Form form)
         {
@@ -31,13 +33,29 @@ namespace BD_Trab
             this.tRABALHADORTableAdapter.Fill(this.bD.TRABALHADOR);
 
             this.comboBox1.SelectedIndex = 0;
-
-            for (int i = 0; i < arrayEncargo.Length; i++)
+            try
             {
-                if (eNCARGOTextBox.Text == arrayEncargo[i])
-                    comboBox2.SelectedIndex = i;
+                for (int i = 0; i < arrayEncargo.Length; i++)
+                {
+                    if (eNCARGOTextBox.Text[0] == arrayEncargo[i])
+                        comboBox2.SelectedIndex = i;
+                }
+
+                for (int i = 0; i < arrayGenero.Length; i++)
+                {
+                    if (gENEROTextBox.Text[0] == arrayGenero[i])
+                        comboBox3.SelectedIndex = i;
+                }
+                for (int i = 0; i < arrayTurno.Length; i++)
+                {
+                    if (tURNOTextBox.Text[0] == arrayTurno[i])
+                        comboBox4.SelectedIndex = i;
+                }
             }
+            catch { }
             eNCARGOTextBox.Hide();
+            gENEROTextBox.Hide();
+            tURNOTextBox.Hide();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -50,7 +68,7 @@ namespace BD_Trab
         {
             if (!this.Validate())
                 MessageBox.Show("Informação Inválida!");
-            
+
 
             this.tRABALHADORBindingSource.EndEdit();
             this.tRABALHADORBindingSource.AddNew();
@@ -92,7 +110,7 @@ namespace BD_Trab
 
         private void Trabalhadores_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if(checkClose)
+            if (checkClose)
                 principal.Close();
         }
 
@@ -115,17 +133,43 @@ namespace BD_Trab
 
         private void nOMEListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            for (int i = 0; i < arrayEncargo.Length; i++)
+            try
             {
-                if (eNCARGOTextBox.Text == arrayEncargo[i])
-                    comboBox2.SelectedIndex = i;
-            }   
+                for (int i = 0; i < arrayEncargo.Length; i++)
+                {
+                    if (eNCARGOTextBox.Text[0] == arrayEncargo[i])
+                        comboBox2.SelectedIndex = i;
+                }
+                for (int i = 0; i < arrayGenero.Length; i++)
+                {
+                    if (gENEROTextBox.Text[0] == arrayGenero[i])
+                        comboBox3.SelectedIndex = i;
+                }
+                for (int i = 0; i < arrayTurno.Length; i++)
+                {
+                    if (tURNOTextBox.Text[0] == arrayTurno[i])
+                        comboBox4.SelectedIndex = i;
+                }
+            }
+            catch { }
         }
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
             ComboBox me = sender as ComboBox;
             eNCARGOTextBox.Text = me.Text;
+        }
+
+        private void comboBox4_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ComboBox me = sender as ComboBox;
+            tURNOTextBox.Text = me.Text;
+        }
+
+        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ComboBox me = sender as ComboBox;
+            gENEROTextBox.Text = me.Text;
         }
     }
 }
