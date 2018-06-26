@@ -56,6 +56,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.comboBox4 = new System.Windows.Forms.ComboBox();
             iD_TRABALHADORLabel = new System.Windows.Forms.Label();
             nOMELabel = new System.Windows.Forms.Label();
             gENEROLabel = new System.Windows.Forms.Label();
@@ -151,9 +153,9 @@
             // gENEROTextBox
             // 
             this.gENEROTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tRABALHADORBindingSource, "GENERO", true));
-            this.gENEROTextBox.Location = new System.Drawing.Point(439, 226);
+            this.gENEROTextBox.Location = new System.Drawing.Point(316, 352);
             this.gENEROTextBox.Name = "gENEROTextBox";
-            this.gENEROTextBox.Size = new System.Drawing.Size(317, 20);
+            this.gENEROTextBox.Size = new System.Drawing.Size(75, 20);
             this.gENEROTextBox.TabIndex = 5;
             // 
             // mORADATextBox
@@ -167,17 +169,17 @@
             // eNCARGOTextBox
             // 
             this.eNCARGOTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tRABALHADORBindingSource, "ENCARGO", true));
-            this.eNCARGOTextBox.Location = new System.Drawing.Point(439, 278);
+            this.eNCARGOTextBox.Location = new System.Drawing.Point(426, 386);
             this.eNCARGOTextBox.Name = "eNCARGOTextBox";
-            this.eNCARGOTextBox.Size = new System.Drawing.Size(120, 20);
+            this.eNCARGOTextBox.Size = new System.Drawing.Size(74, 20);
             this.eNCARGOTextBox.TabIndex = 9;
             // 
             // tURNOTextBox
             // 
             this.tURNOTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tRABALHADORBindingSource, "TURNO", true));
-            this.tURNOTextBox.Location = new System.Drawing.Point(439, 304);
+            this.tURNOTextBox.Location = new System.Drawing.Point(299, 386);
             this.tURNOTextBox.Name = "tURNOTextBox";
-            this.tURNOTextBox.Size = new System.Drawing.Size(317, 20);
+            this.tURNOTextBox.Size = new System.Drawing.Size(86, 20);
             this.tURNOTextBox.TabIndex = 11;
             // 
             // button3
@@ -235,6 +237,7 @@
             this.nOMEListBox.Name = "nOMEListBox";
             this.nOMEListBox.Size = new System.Drawing.Size(262, 290);
             this.nOMEListBox.TabIndex = 3;
+            this.nOMEListBox.SelectedIndexChanged += new System.EventHandler(this.nOMEListBox_SelectedIndexChanged);
             // 
             // button4
             // 
@@ -290,6 +293,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.comboBox4);
+            this.groupBox2.Controls.Add(this.comboBox3);
             this.groupBox2.Controls.Add(this.comboBox2);
             this.groupBox2.Controls.Add(this.button3);
             this.groupBox2.Controls.Add(iD_TRABALHADORLabel);
@@ -324,11 +329,33 @@
             this.comboBox2.Items.AddRange(new object[] {
             "Limpeza",
             "Enfermeiro"});
-            this.comboBox2.Location = new System.Drawing.Point(565, 278);
+            this.comboBox2.Location = new System.Drawing.Point(439, 278);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(191, 21);
+            this.comboBox2.Size = new System.Drawing.Size(317, 21);
             this.comboBox2.TabIndex = 14;
             this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Items.AddRange(new object[] {
+            "Limpeza",
+            "Enfermeiro"});
+            this.comboBox3.Location = new System.Drawing.Point(439, 225);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(317, 21);
+            this.comboBox3.TabIndex = 15;
+            // 
+            // comboBox4
+            // 
+            this.comboBox4.FormattingEnabled = true;
+            this.comboBox4.Items.AddRange(new object[] {
+            "Limpeza",
+            "Enfermeiro"});
+            this.comboBox4.Location = new System.Drawing.Point(439, 305);
+            this.comboBox4.Name = "comboBox4";
+            this.comboBox4.Size = new System.Drawing.Size(317, 21);
+            this.comboBox4.TabIndex = 16;
             // 
             // Trabalhadores
             // 
@@ -373,5 +400,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.ComboBox comboBox3;
     }
 }

@@ -16,6 +16,7 @@ namespace BD_Trab
         private string search;
         private string filter;
         private bool checkClose = true;
+        string[] arrayEncargo = { "Limpeza", "Enfermeiro" };
 
         public Trabalhadores(Form form)
         {
@@ -30,6 +31,13 @@ namespace BD_Trab
             this.tRABALHADORTableAdapter.Fill(this.bD.TRABALHADOR);
 
             this.comboBox1.SelectedIndex = 0;
+
+            for (int i = 0; i < arrayEncargo.Length; i++)
+            {
+                if (eNCARGOTextBox.Text == arrayEncargo[i])
+                    comboBox2.SelectedIndex = i;
+            }
+            eNCARGOTextBox.Hide();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -100,15 +108,24 @@ namespace BD_Trab
                 tRABALHADORBindingSource.Filter = string.Format("{0} LIKE '%{1}%'", filter, search);
         }
 
-        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            filter = this.comboBox2.SelectedItem.ToString().ToUpper();
-        }
-
         public void SetCheckClose(bool x)
         {
             checkClose = x;
         }
 
+        private void nOMEListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            for (int i = 0; i < arrayEncargo.Length; i++)
+            {
+                if (eNCARGOTextBox.Text == arrayEncargo[i])
+                    comboBox2.SelectedIndex = i;
+            }   
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ComboBox me = sender as ComboBox;
+            eNCARGOTextBox.Text = me.Text;
+        }
     }
 }
