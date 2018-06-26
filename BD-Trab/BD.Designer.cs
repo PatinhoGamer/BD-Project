@@ -3047,15 +3047,25 @@ namespace BD_Trab.BDTableAdapters {
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::Oracle.ManagedDataAccess.Client.OracleCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM CTTPSIG13.TRABALHADOR\r\nWHERE        (ID_TRABALHADOR = :id_trabalhador" +
+                ")";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
+            global::Oracle.ManagedDataAccess.Client.OracleParameter param = new global::Oracle.ManagedDataAccess.Client.OracleParameter();
+            param.ParameterName = ":id_trabalhador";
+            param.DbType = global::System.Data.DbType.Decimal;
+            param.OracleDbTypeEx = global::Oracle.ManagedDataAccess.Client.OracleDbType.Decimal;
+            param.Size = 22;
+            param.IsNullable = true;
+            param.SourceColumn = "ID_TRABALHADOR";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
             this._adapter.InsertCommand = new global::Oracle.ManagedDataAccess.Client.OracleCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO \"CTTPSIG13\".\"TRABALHADOR\" (\"ID_TRABALHADOR\", \"NOME\", \"GENERO\", \"MORAD" +
                 "A\", \"ENCARGO\", \"TURNO\") VALUES (:ID_TRABALHADOR, :NOME, :GENERO, :MORADA, :ENCAR" +
                 "GO, :TURNO)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            global::Oracle.ManagedDataAccess.Client.OracleParameter param = new global::Oracle.ManagedDataAccess.Client.OracleParameter();
+            param = new global::Oracle.ManagedDataAccess.Client.OracleParameter();
             param.ParameterName = "ID_TRABALHADOR";
             param.DbType = global::System.Data.DbType.Int16;
             param.OracleDbTypeEx = global::Oracle.ManagedDataAccess.Client.OracleDbType.Int16;
@@ -3100,6 +3110,56 @@ namespace BD_Trab.BDTableAdapters {
             param.IsNullable = true;
             param.SourceColumn = "TURNO";
             this._adapter.InsertCommand.Parameters.Add(param);
+            this._adapter.UpdateCommand = new global::Oracle.ManagedDataAccess.Client.OracleCommand();
+            this._adapter.UpdateCommand.Connection = this.Connection;
+            this._adapter.UpdateCommand.CommandText = "UPDATE       CTTPSIG13.TRABALHADOR\r\nSET                NOME = :NOME, GENERO = :GE" +
+                "NERO, MORADA = :MORADA, ENCARGO = :ENCARGO, TURNO = :TURNO\r\nWHERE        (ID_TRA" +
+                "BALHADOR = :ID_TRABALHADOR)";
+            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            param = new global::Oracle.ManagedDataAccess.Client.OracleParameter();
+            param.ParameterName = ":NOME";
+            param.OracleDbTypeEx = global::Oracle.ManagedDataAccess.Client.OracleDbType.Varchar2;
+            param.Size = 100;
+            param.IsNullable = true;
+            param.SourceColumn = "NOME";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::Oracle.ManagedDataAccess.Client.OracleParameter();
+            param.ParameterName = ":GENERO";
+            param.OracleDbTypeEx = global::Oracle.ManagedDataAccess.Client.OracleDbType.Char;
+            param.Size = 1;
+            param.IsNullable = true;
+            param.SourceColumn = "GENERO";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::Oracle.ManagedDataAccess.Client.OracleParameter();
+            param.ParameterName = ":MORADA";
+            param.OracleDbTypeEx = global::Oracle.ManagedDataAccess.Client.OracleDbType.Varchar2;
+            param.Size = 250;
+            param.IsNullable = true;
+            param.SourceColumn = "MORADA";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::Oracle.ManagedDataAccess.Client.OracleParameter();
+            param.ParameterName = ":ENCARGO";
+            param.OracleDbTypeEx = global::Oracle.ManagedDataAccess.Client.OracleDbType.Varchar2;
+            param.Size = 20;
+            param.IsNullable = true;
+            param.SourceColumn = "ENCARGO";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::Oracle.ManagedDataAccess.Client.OracleParameter();
+            param.ParameterName = ":TURNO";
+            param.OracleDbTypeEx = global::Oracle.ManagedDataAccess.Client.OracleDbType.Char;
+            param.Size = 1;
+            param.IsNullable = true;
+            param.SourceColumn = "TURNO";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::Oracle.ManagedDataAccess.Client.OracleParameter();
+            param.ParameterName = ":ID_TRABALHADOR";
+            param.DbType = global::System.Data.DbType.Decimal;
+            param.OracleDbTypeEx = global::Oracle.ManagedDataAccess.Client.OracleDbType.Decimal;
+            param.Size = 22;
+            param.IsNullable = true;
+            param.SourceColumn = "ID_TRABALHADOR";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3181,7 +3241,8 @@ namespace BD_Trab.BDTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete() {
+        public virtual int Delete(decimal id_trabalhador) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((decimal)(id_trabalhador));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -3246,6 +3307,58 @@ namespace BD_Trab.BDTableAdapters {
             finally {
                 if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
                     this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(string NOME, string GENERO, string MORADA, string ENCARGO, string TURNO, decimal ID_TRABALHADOR) {
+            if ((NOME == null)) {
+                throw new global::System.ArgumentNullException("NOME");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(NOME));
+            }
+            if ((GENERO == null)) {
+                throw new global::System.ArgumentNullException("GENERO");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(GENERO));
+            }
+            if ((MORADA == null)) {
+                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(MORADA));
+            }
+            if ((ENCARGO == null)) {
+                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(ENCARGO));
+            }
+            if ((TURNO == null)) {
+                throw new global::System.ArgumentNullException("TURNO");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(TURNO));
+            }
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((decimal)(ID_TRABALHADOR));
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
+            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.UpdateCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.UpdateCommand.Connection.Close();
                 }
             }
         }
@@ -3405,22 +3518,22 @@ namespace BD_Trab.BDTableAdapters {
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::Oracle.ManagedDataAccess.Client.OracleCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM \"CTTPSIG13\".\"TRABURG\" WHERE ((\"ID_URGENCIA\" = :Original_ID_URGENCIA) " +
-                "AND (\"ID_TRABALHADOR\" = :Original_ID_TRABALHADOR))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM CTTPSIG13.TRABURG\r\nWHERE        (ID_URGENCIA = :ID_URGENCIA) AND (ID_" +
+                "TRABALHADOR = :ID_TRABALHADOR)";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             global::Oracle.ManagedDataAccess.Client.OracleParameter param = new global::Oracle.ManagedDataAccess.Client.OracleParameter();
-            param.ParameterName = "Original_ID_URGENCIA";
-            param.DbType = global::System.Data.DbType.Int16;
-            param.OracleDbTypeEx = global::Oracle.ManagedDataAccess.Client.OracleDbType.Int16;
+            param.ParameterName = ":ID_URGENCIA";
+            param.DbType = global::System.Data.DbType.Decimal;
+            param.OracleDbTypeEx = global::Oracle.ManagedDataAccess.Client.OracleDbType.Decimal;
             param.Size = 22;
             param.IsNullable = true;
             param.SourceColumn = "ID_URGENCIA";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::Oracle.ManagedDataAccess.Client.OracleParameter();
-            param.ParameterName = "Original_ID_TRABALHADOR";
-            param.DbType = global::System.Data.DbType.Int16;
-            param.OracleDbTypeEx = global::Oracle.ManagedDataAccess.Client.OracleDbType.Int16;
+            param.ParameterName = ":ID_TRABALHADOR";
+            param.DbType = global::System.Data.DbType.Decimal;
+            param.OracleDbTypeEx = global::Oracle.ManagedDataAccess.Client.OracleDbType.Decimal;
             param.Size = 22;
             param.IsNullable = true;
             param.SourceColumn = "ID_TRABALHADOR";
@@ -3563,9 +3676,9 @@ namespace BD_Trab.BDTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(short Original_ID_URGENCIA, short Original_ID_TRABALHADOR) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((short)(Original_ID_URGENCIA));
-            this.Adapter.DeleteCommand.Parameters[1].Value = ((short)(Original_ID_TRABALHADOR));
+        public virtual int Delete(decimal ID_URGENCIA, decimal ID_TRABALHADOR) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((decimal)(ID_URGENCIA));
+            this.Adapter.DeleteCommand.Parameters[1].Value = ((decimal)(ID_TRABALHADOR));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -3766,13 +3879,26 @@ namespace BD_Trab.BDTableAdapters {
             tableMapping.ColumnMappings.Add("DATA_", "DATA_");
             tableMapping.ColumnMappings.Add("DESCRICAO", "DESCRICAO");
             this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.DeleteCommand = new global::Oracle.ManagedDataAccess.Client.OracleCommand();
+            this._adapter.DeleteCommand.Connection = this.Connection;
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM CTTPSIG13.URGENCIA\r\nWHERE        (ID_URGENCIA = :ID_URGENCIA)";
+            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
+            global::Oracle.ManagedDataAccess.Client.OracleParameter param = new global::Oracle.ManagedDataAccess.Client.OracleParameter();
+            param.ParameterName = ":ID_URGENCIA";
+            param.DbType = global::System.Data.DbType.Decimal;
+            param.OracleDbTypeEx = global::Oracle.ManagedDataAccess.Client.OracleDbType.Decimal;
+            param.Size = 22;
+            param.IsNullable = true;
+            param.SourceColumn = "ID_URGENCIA";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
             this._adapter.InsertCommand = new global::Oracle.ManagedDataAccess.Client.OracleCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO \"CTTPSIG13\".\"URGENCIA\" (\"ID_URGENCIA\", \"ID_UTENTE\", \"ID_TRABALHADOR\"," +
                 " \"DATA_\", \"DESCRICAO\") VALUES (:ID_URGENCIA, :ID_UTENTE, :ID_TRABALHADOR, :DATA_" +
                 ", :DESCRICAO)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            global::Oracle.ManagedDataAccess.Client.OracleParameter param = new global::Oracle.ManagedDataAccess.Client.OracleParameter();
+            param = new global::Oracle.ManagedDataAccess.Client.OracleParameter();
             param.ParameterName = "ID_URGENCIA";
             param.DbType = global::System.Data.DbType.Int32;
             param.OracleDbTypeEx = global::Oracle.ManagedDataAccess.Client.OracleDbType.Int32;
@@ -3811,6 +3937,51 @@ namespace BD_Trab.BDTableAdapters {
             param.IsNullable = true;
             param.SourceColumn = "DESCRICAO";
             this._adapter.InsertCommand.Parameters.Add(param);
+            this._adapter.UpdateCommand = new global::Oracle.ManagedDataAccess.Client.OracleCommand();
+            this._adapter.UpdateCommand.Connection = this.Connection;
+            this._adapter.UpdateCommand.CommandText = "UPDATE       CTTPSIG13.URGENCIA\r\nSET                ID_URGENCIA = :ID_URGENCIA, I" +
+                "D_UTENTE = :ID_UTENTE, ID_TRABALHADOR = :ID_TRABALHADOR, DATA_ = :DATA_, DESCRIC" +
+                "AO = :DESCRICAO";
+            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            param = new global::Oracle.ManagedDataAccess.Client.OracleParameter();
+            param.ParameterName = ":ID_URGENCIA";
+            param.DbType = global::System.Data.DbType.Decimal;
+            param.OracleDbTypeEx = global::Oracle.ManagedDataAccess.Client.OracleDbType.Decimal;
+            param.Size = 22;
+            param.IsNullable = true;
+            param.SourceColumn = "ID_URGENCIA";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::Oracle.ManagedDataAccess.Client.OracleParameter();
+            param.ParameterName = ":ID_UTENTE";
+            param.DbType = global::System.Data.DbType.Decimal;
+            param.OracleDbTypeEx = global::Oracle.ManagedDataAccess.Client.OracleDbType.Decimal;
+            param.Size = 22;
+            param.IsNullable = true;
+            param.SourceColumn = "ID_UTENTE";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::Oracle.ManagedDataAccess.Client.OracleParameter();
+            param.ParameterName = ":ID_TRABALHADOR";
+            param.DbType = global::System.Data.DbType.Decimal;
+            param.OracleDbTypeEx = global::Oracle.ManagedDataAccess.Client.OracleDbType.Decimal;
+            param.Size = 22;
+            param.IsNullable = true;
+            param.SourceColumn = "ID_TRABALHADOR";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::Oracle.ManagedDataAccess.Client.OracleParameter();
+            param.ParameterName = ":DATA_";
+            param.DbType = global::System.Data.DbType.Date;
+            param.OracleDbTypeEx = global::Oracle.ManagedDataAccess.Client.OracleDbType.Date;
+            param.Size = 7;
+            param.IsNullable = true;
+            param.SourceColumn = "DATA_";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::Oracle.ManagedDataAccess.Client.OracleParameter();
+            param.ParameterName = ":DESCRICAO";
+            param.OracleDbTypeEx = global::Oracle.ManagedDataAccess.Client.OracleDbType.Varchar2;
+            param.Size = 1000;
+            param.IsNullable = true;
+            param.SourceColumn = "DESCRICAO";
+            this._adapter.UpdateCommand.Parameters.Add(param);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3887,6 +4058,28 @@ namespace BD_Trab.BDTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
+        public virtual int Delete(decimal ID_URGENCIA) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((decimal)(ID_URGENCIA));
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
+            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.DeleteCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.DeleteCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
         public virtual int Insert(int ID_URGENCIA, short ID_UTENTE, short ID_TRABALHADOR, System.DateTime DATA_, string DESCRICAO) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((int)(ID_URGENCIA));
@@ -3911,6 +4104,37 @@ namespace BD_Trab.BDTableAdapters {
             finally {
                 if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
                     this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(decimal ID_URGENCIA, decimal ID_UTENTE, decimal ID_TRABALHADOR, System.DateTime DATA_, string DESCRICAO) {
+            this.Adapter.UpdateCommand.Parameters[0].Value = ((decimal)(ID_URGENCIA));
+            this.Adapter.UpdateCommand.Parameters[1].Value = ((decimal)(ID_UTENTE));
+            this.Adapter.UpdateCommand.Parameters[2].Value = ((decimal)(ID_TRABALHADOR));
+            this.Adapter.UpdateCommand.Parameters[3].Value = ((System.DateTime)(DATA_));
+            if ((DESCRICAO == null)) {
+                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(DESCRICAO));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
+            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.UpdateCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.UpdateCommand.Connection.Close();
                 }
             }
         }
@@ -4042,12 +4266,25 @@ namespace BD_Trab.BDTableAdapters {
             tableMapping.ColumnMappings.Add("GENERO", "GENERO");
             tableMapping.ColumnMappings.Add("MORADA", "MORADA");
             this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.DeleteCommand = new global::Oracle.ManagedDataAccess.Client.OracleCommand();
+            this._adapter.DeleteCommand.Connection = this.Connection;
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM CTTPSIG13.UTENTE\r\nWHERE        (ID_UTENTE = :ID_UTENTE)";
+            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
+            global::Oracle.ManagedDataAccess.Client.OracleParameter param = new global::Oracle.ManagedDataAccess.Client.OracleParameter();
+            param.ParameterName = ":ID_UTENTE";
+            param.DbType = global::System.Data.DbType.Decimal;
+            param.OracleDbTypeEx = global::Oracle.ManagedDataAccess.Client.OracleDbType.Decimal;
+            param.Size = 22;
+            param.IsNullable = true;
+            param.SourceColumn = "ID_UTENTE";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
             this._adapter.InsertCommand = new global::Oracle.ManagedDataAccess.Client.OracleCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO \"CTTPSIG13\".\"UTENTE\" (\"ID_UTENTE\", \"NOME\", \"GENERO\", \"MORADA\") VALUES" +
                 " (:ID_UTENTE, :NOME, :GENERO, :MORADA)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            global::Oracle.ManagedDataAccess.Client.OracleParameter param = new global::Oracle.ManagedDataAccess.Client.OracleParameter();
+            param = new global::Oracle.ManagedDataAccess.Client.OracleParameter();
             param.ParameterName = "ID_UTENTE";
             param.DbType = global::System.Data.DbType.Int16;
             param.OracleDbTypeEx = global::Oracle.ManagedDataAccess.Client.OracleDbType.Int16;
@@ -4077,6 +4314,41 @@ namespace BD_Trab.BDTableAdapters {
             param.IsNullable = true;
             param.SourceColumn = "MORADA";
             this._adapter.InsertCommand.Parameters.Add(param);
+            this._adapter.UpdateCommand = new global::Oracle.ManagedDataAccess.Client.OracleCommand();
+            this._adapter.UpdateCommand.Connection = this.Connection;
+            this._adapter.UpdateCommand.CommandText = "UPDATE       CTTPSIG13.UTENTE\r\nSET                NOME = :NOME, GENERO = :GENERO," +
+                " MORADA = :MORADA\r\nWHERE        (ID_UTENTE = :ID_UTENTE)";
+            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            param = new global::Oracle.ManagedDataAccess.Client.OracleParameter();
+            param.ParameterName = ":NOME";
+            param.OracleDbTypeEx = global::Oracle.ManagedDataAccess.Client.OracleDbType.Varchar2;
+            param.Size = 100;
+            param.IsNullable = true;
+            param.SourceColumn = "NOME";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::Oracle.ManagedDataAccess.Client.OracleParameter();
+            param.ParameterName = ":GENERO";
+            param.OracleDbTypeEx = global::Oracle.ManagedDataAccess.Client.OracleDbType.Char;
+            param.Size = 1;
+            param.IsNullable = true;
+            param.SourceColumn = "GENERO";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::Oracle.ManagedDataAccess.Client.OracleParameter();
+            param.ParameterName = ":MORADA";
+            param.OracleDbTypeEx = global::Oracle.ManagedDataAccess.Client.OracleDbType.Varchar2;
+            param.Size = 250;
+            param.IsNullable = true;
+            param.SourceColumn = "MORADA";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::Oracle.ManagedDataAccess.Client.OracleParameter();
+            param.ParameterName = ":ID_UTENTE";
+            param.DbType = global::System.Data.DbType.Decimal;
+            param.OracleDbTypeEx = global::Oracle.ManagedDataAccess.Client.OracleDbType.Decimal;
+            param.Size = 22;
+            param.IsNullable = true;
+            param.SourceColumn = "ID_UTENTE";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4156,6 +4428,28 @@ namespace BD_Trab.BDTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
+        public virtual int Delete(decimal ID_UTENTE) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((decimal)(ID_UTENTE));
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
+            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.DeleteCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.DeleteCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
         public virtual int Insert(short ID_UTENTE, string NOME, string GENERO, string MORADA) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((short)(ID_UTENTE));
@@ -4189,6 +4483,46 @@ namespace BD_Trab.BDTableAdapters {
             finally {
                 if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
                     this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(string NOME, string GENERO, string MORADA, decimal ID_UTENTE) {
+            if ((NOME == null)) {
+                throw new global::System.ArgumentNullException("NOME");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(NOME));
+            }
+            if ((GENERO == null)) {
+                throw new global::System.ArgumentNullException("GENERO");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(GENERO));
+            }
+            if ((MORADA == null)) {
+                throw new global::System.ArgumentNullException("MORADA");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(MORADA));
+            }
+            this.Adapter.UpdateCommand.Parameters[3].Value = ((decimal)(ID_UTENTE));
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
+            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.UpdateCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.UpdateCommand.Connection.Close();
                 }
             }
         }
