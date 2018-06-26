@@ -86,6 +86,7 @@ namespace BD_Trab
 
         private void button4_Click(object sender, EventArgs e)
         {
+            tableAdapterManager.UpdateAll(bD);
             checkClose = false;
             principal.Show();
             this.Hide();
@@ -125,5 +126,16 @@ namespace BD_Trab
 
             tRABURGBindingSource.Filter = string.Format("ID_Urgencia = {0}",id_urgencia);
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            tRABURGBindingSource.AddNew();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            tRABURGBindingSource.RemoveCurrent();
+        }
+
     }
 }

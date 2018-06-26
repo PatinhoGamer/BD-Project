@@ -20,7 +20,7 @@ namespace BD_Trab
         public FormPrincipal()
         {
             InitializeComponent();
-            groupBox2.Hide();
+            //groupBox2.Hide();
         }
 
         Login login = new Login("admin", "1234");
@@ -117,5 +117,7 @@ namespace BD_Trab
             Purge.Show();
             //Hide();
         }
+
+
     }
 }
