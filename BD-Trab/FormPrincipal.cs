@@ -74,6 +74,7 @@ namespace BD_Trab
         {
             if (Ptrab == null)
                 Ptrab = new Trabalhadores(this);
+            Ptrab.SetCheckClose(true);
             Ptrab.Show();
             Hide();
         }
@@ -110,6 +111,7 @@ namespace BD_Trab
         {
             if (Purge == null)
                 Purge = new Urgencias(this);
+            Purge.SetCheckClose(true);
             Purge.Show();
             //Hide();
         }

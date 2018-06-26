@@ -55,7 +55,7 @@ namespace BD_Trab
                 else
                     uRGENCIABindingSource.Filter = "";
             }
-            else if (filter.Substring(0,2) == "Da")
+            else if (filter.Substring(0, 2) == "Da")
             {
                 try
                 {
@@ -92,11 +92,6 @@ namespace BD_Trab
             this.Hide();
         }
 
-        private void groupBox2_Enter(object sender, EventArgs e)
-        {
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             uRGENCIABindingSource.AddNew();
@@ -113,18 +108,9 @@ namespace BD_Trab
 
         private void iD_URGENCIAListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            /*string connstr = @"Server=.\SQLEXPRESS ;Initial Catalog=RPSJDB;Integrated Security=True;";
-             string query = "Select ID_Trabalhador" +
-                            " From TrabUrg" +
-                            " Where ID_Urgencia = " + id_urgencia;
-             SqlDataAdapter adapter = new SqlDataAdapter(query, connstr);
-             DataTable table = new DataTable();
-             adapter.Fill(table);
-             BindingSource bindingSource1 = new BindingSource();
-             BindingSource bindingSource1.DataSource = table;*/
             id_urgencia = int.Parse(iD_URGENCIATextBox.Text);
 
-            tRABURGBindingSource.Filter = string.Format("ID_Urgencia = {0}",id_urgencia);
+            tRABURGBindingSource.Filter = string.Format("ID_Urgencia = {0}", id_urgencia);
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -134,8 +120,24 @@ namespace BD_Trab
 
         private void button6_Click(object sender, EventArgs e)
         {
-            tRABURGBindingSource.RemoveCurrent();
+            try
+            {
+                tRABURGBindingSource.RemoveCurrent();
+            }
+            catch { }
         }
 
+        private void button3_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                uRGENCIABindingSource.RemoveCurrent();
+            }
+            catch { }
+        }
+        public void SetCheckClose(bool x)
+        {
+            checkClose = x;
+        }
     }
 }

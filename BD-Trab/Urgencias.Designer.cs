@@ -38,10 +38,15 @@
             System.Windows.Forms.Label dESCRICAOLabel;
             System.Windows.Forms.Label label3;
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.uRGENCIABindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tRABURGBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bD = new BD_Trab.BD();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.iD_TRABALHADORListBox = new System.Windows.Forms.ListBox();
             this.tRABALHADORBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.iD_URGENCIAListBox = new System.Windows.Forms.ListBox();
+            this.uRGENCIABindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.iD_URGENCIATextBox = new System.Windows.Forms.TextBox();
             this.iD_UTENTETextBox = new System.Windows.Forms.TextBox();
             this.iD_TRABALHADORTextBox = new System.Windows.Forms.TextBox();
@@ -59,12 +64,7 @@
             this.bDBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.uTENTETableAdapter = new BD_Trab.BDTableAdapters.UTENTETableAdapter();
             this.tRABALHADORTableAdapter = new BD_Trab.BDTableAdapters.TRABALHADORTableAdapter();
-            this.iD_TRABALHADORListBox = new System.Windows.Forms.ListBox();
-            this.tRABURGBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tRABURGTableAdapter = new BD_Trab.BDTableAdapters.TRABURGTableAdapter();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             label1 = new System.Windows.Forms.Label();
             nOMELabel = new System.Windows.Forms.Label();
             iD_URGENCIALabel = new System.Windows.Forms.Label();
@@ -74,12 +74,12 @@
             dESCRICAOLabel = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.uRGENCIABindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tRABURGBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bD)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tRABALHADORBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uRGENCIABindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uTENTEBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bDBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tRABURGBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -185,17 +185,56 @@
             this.groupBox2.Size = new System.Drawing.Size(786, 426);
             this.groupBox2.TabIndex = 7;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
-            // uRGENCIABindingSource
+            // textBox1
             // 
-            this.uRGENCIABindingSource.DataMember = "URGENCIA";
-            this.uRGENCIABindingSource.DataSource = this.bD;
+            this.textBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tRABURGBindingSource, "ID_TRABALHADOR", true));
+            this.textBox1.Location = new System.Drawing.Point(552, 256);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(106, 20);
+            this.textBox1.TabIndex = 28;
+            // 
+            // tRABURGBindingSource
+            // 
+            this.tRABURGBindingSource.DataMember = "TRABURG";
+            this.tRABURGBindingSource.DataSource = this.bD;
             // 
             // bD
             // 
             this.bD.DataSetName = "BD";
             this.bD.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(552, 311);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(106, 23);
+            this.button6.TabIndex = 26;
+            this.button6.Text = "Remover Ajudante";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(552, 282);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(106, 23);
+            this.button5.TabIndex = 25;
+            this.button5.Text = "Adicionar Ajudante";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // iD_TRABALHADORListBox
+            // 
+            this.iD_TRABALHADORListBox.CausesValidation = false;
+            this.iD_TRABALHADORListBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.tRABALHADORBindingSource, "ID_TRABALHADOR", true));
+            this.iD_TRABALHADORListBox.DataSource = this.tRABURGBindingSource;
+            this.iD_TRABALHADORListBox.DisplayMember = "ID_TRABALHADOR";
+            this.iD_TRABALHADORListBox.FormattingEnabled = true;
+            this.iD_TRABALHADORListBox.Location = new System.Drawing.Point(455, 256);
+            this.iD_TRABALHADORListBox.Name = "iD_TRABALHADORListBox";
+            this.iD_TRABALHADORListBox.Size = new System.Drawing.Size(76, 147);
+            this.iD_TRABALHADORListBox.TabIndex = 24;
             // 
             // tRABALHADORBindingSource
             // 
@@ -214,6 +253,11 @@
             this.iD_URGENCIAListBox.Size = new System.Drawing.Size(262, 303);
             this.iD_URGENCIAListBox.TabIndex = 20;
             this.iD_URGENCIAListBox.SelectedIndexChanged += new System.EventHandler(this.iD_URGENCIAListBox_SelectedIndexChanged);
+            // 
+            // uRGENCIABindingSource
+            // 
+            this.uRGENCIABindingSource.DataMember = "URGENCIA";
+            this.uRGENCIABindingSource.DataSource = this.bD;
             // 
             // iD_URGENCIATextBox
             // 
@@ -317,6 +361,7 @@
             this.button3.TabIndex = 10;
             this.button3.Text = "Apagar Selecionado";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // uTENTEBindingSource
             // 
@@ -350,54 +395,9 @@
             // 
             this.tRABALHADORTableAdapter.ClearBeforeFill = true;
             // 
-            // iD_TRABALHADORListBox
-            // 
-            this.iD_TRABALHADORListBox.CausesValidation = false;
-            this.iD_TRABALHADORListBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.tRABALHADORBindingSource, "ID_TRABALHADOR", true));
-            this.iD_TRABALHADORListBox.DataSource = this.tRABURGBindingSource;
-            this.iD_TRABALHADORListBox.DisplayMember = "ID_TRABALHADOR";
-            this.iD_TRABALHADORListBox.FormattingEnabled = true;
-            this.iD_TRABALHADORListBox.Location = new System.Drawing.Point(455, 256);
-            this.iD_TRABALHADORListBox.Name = "iD_TRABALHADORListBox";
-            this.iD_TRABALHADORListBox.Size = new System.Drawing.Size(76, 147);
-            this.iD_TRABALHADORListBox.TabIndex = 24;
-            // 
-            // tRABURGBindingSource
-            // 
-            this.tRABURGBindingSource.DataMember = "TRABURG";
-            this.tRABURGBindingSource.DataSource = this.bD;
-            // 
             // tRABURGTableAdapter
             // 
             this.tRABURGTableAdapter.ClearBeforeFill = true;
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(552, 282);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(106, 23);
-            this.button5.TabIndex = 25;
-            this.button5.Text = "Adicionar Ajudante";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
-            // 
-            // button6
-            // 
-            this.button6.Location = new System.Drawing.Point(552, 311);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(106, 23);
-            this.button6.TabIndex = 26;
-            this.button6.Text = "Remover Ajudante";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
-            // 
-            // textBox1
-            // 
-            this.textBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tRABURGBindingSource, "ID_TRABALHADOR", true));
-            this.textBox1.Location = new System.Drawing.Point(552, 256);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(106, 20);
-            this.textBox1.TabIndex = 28;
             // 
             // Urgencias
             // 
@@ -413,12 +413,12 @@
             this.Load += new System.EventHandler(this.Urgencias_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.uRGENCIABindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tRABURGBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bD)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tRABALHADORBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uRGENCIABindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.uTENTEBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bDBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tRABURGBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

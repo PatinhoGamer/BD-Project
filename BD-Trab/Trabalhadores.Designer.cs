@@ -55,6 +55,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
             iD_TRABALHADORLabel = new System.Windows.Forms.Label();
             nOMELabel = new System.Windows.Forms.Label();
             gENEROLabel = new System.Windows.Forms.Label();
@@ -168,7 +169,7 @@
             this.eNCARGOTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tRABALHADORBindingSource, "ENCARGO", true));
             this.eNCARGOTextBox.Location = new System.Drawing.Point(439, 278);
             this.eNCARGOTextBox.Name = "eNCARGOTextBox";
-            this.eNCARGOTextBox.Size = new System.Drawing.Size(317, 20);
+            this.eNCARGOTextBox.Size = new System.Drawing.Size(120, 20);
             this.eNCARGOTextBox.TabIndex = 9;
             // 
             // tURNOTextBox
@@ -289,6 +290,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.comboBox2);
             this.groupBox2.Controls.Add(this.button3);
             this.groupBox2.Controls.Add(iD_TRABALHADORLabel);
             this.groupBox2.Controls.Add(this.iD_TRABALHADORTextBox);
@@ -315,6 +317,18 @@
             this.groupBox2.Size = new System.Drawing.Size(790, 425);
             this.groupBox2.TabIndex = 9;
             this.groupBox2.TabStop = false;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Items.AddRange(new object[] {
+            "Limpeza",
+            "Enfermeiro"});
+            this.comboBox2.Location = new System.Drawing.Point(565, 278);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(191, 21);
+            this.comboBox2.TabIndex = 14;
+            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
             // Trabalhadores
             // 
@@ -358,5 +372,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.ComboBox comboBox2;
     }
 }

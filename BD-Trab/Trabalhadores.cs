@@ -23,13 +23,6 @@ namespace BD_Trab
             InitializeComponent();
         }
 
-        private void tRABALHADORBindingNavigatorSaveItem_Click(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.tRABALHADORBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.bD);
-
-        }
 
         private void Trabalhadores_Load(object sender, EventArgs e)
         {
@@ -49,15 +42,28 @@ namespace BD_Trab
         {
             if (!this.Validate())
                 MessageBox.Show("Informação Inválida!");
+            
+
             this.tRABALHADORBindingSource.EndEdit();
             this.tRABALHADORBindingSource.AddNew();
             this.tRABALHADORBindingSource.RemoveCurrent();
-            this.tableAdapterManager.UpdateAll(this.bD);
+            try
+            {
+                this.tableAdapterManager.UpdateAll(this.bD);
+            }
+            catch
+            {
+                MessageBox.Show("Existe Algum Valor Inválido");
+            }
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            this.tRABALHADORBindingSource.RemoveCurrent();
+            try
+            {
+                this.tRABALHADORBindingSource.RemoveCurrent();
+            }
+            catch { };
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -66,7 +72,6 @@ namespace BD_Trab
             this.tRABALHADORBindingSource.AddNew();
             this.tRABALHADORBindingSource.RemoveCurrent();
             this.tableAdapterManager.UpdateAll(this.bD);
-            this.Refresh();
             checkClose = false;
             principal.Show();
             Hide();
@@ -75,7 +80,6 @@ namespace BD_Trab
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             filter = this.comboBox1.SelectedItem.ToString().ToUpper();
-            //this.nOMEListBox.DisplayMember = filter;
         }
 
         private void Trabalhadores_FormClosing(object sender, FormClosingEventArgs e)
@@ -96,27 +100,15 @@ namespace BD_Trab
                 tRABALHADORBindingSource.Filter = string.Format("{0} LIKE '%{1}%'", filter, search);
         }
 
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            filter = this.comboBox2.SelectedItem.ToString().ToUpper();
+        }
 
+        public void SetCheckClose(bool x)
+        {
+            checkClose = x;
+        }
 
-
-        /*
-       private void button1_Click(object sender, EventArgs e)
-       {
-           this.uTENTEBindingSource.AddNew();
-           this.iD_UTENTETextBox.Text = this.uTENTETableAdapter.GetNextID_Utente().ToString();
-       }
-
-       private void button2_Click(object sender, EventArgs e)
-       {
-           this.Validate();
-           this.uTENTEBindingSource.EndEdit();
-           this.tableAdapterManager.UpdateAll(this.bd1);
-       }
-
-       private void button3_Click(object sender, EventArgs e)
-       {
-           this.uTENTEBindingSource.RemoveCurrent();
-           this.tableAdapterManager.UpdateAll(this.bd1);
-       }*/
     }
 }
