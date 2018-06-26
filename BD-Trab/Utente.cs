@@ -13,6 +13,8 @@ namespace BD_Trab
     public partial class Utente : Form
     {
         private FormPrincipal principal;
+        private string search;
+        private string filter;
         private bool checkClose = true;
 
         public Utente(Form form)
@@ -33,7 +35,7 @@ namespace BD_Trab
         {
             // TODO: esta linha de código carrega dados na tabela 'bd1.UTENTE'. Você pode movê-la ou removê-la conforme necessário.
             this.uTENTETableAdapter.Fill(this.bd1.UTENTE);
-
+            this.comboBox1.SelectedIndex = 0;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -78,6 +80,28 @@ namespace BD_Trab
         {
             groupBox1.Hide();
             groupBox2.Show();
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            filter = this.comboBox1.SelectedItem.ToString().ToUpper();
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+            search = this.textBox1.Text;
+            if (filter[0] == 'I')
+            {
+                if (int.TryParse(search, out int id))
+                    uTENTEBindingSource.Filter = string.Format("{0} = {1}", filter, id);
+            }
+            else
+                uTENTEBindingSource.Filter = string.Format("{0} LIKE '%{1}%'", filter, search);
+        }
+
+        private void nOMEListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -34,8 +34,8 @@
             System.Windows.Forms.Label nOMELabel1;
             System.Windows.Forms.Label gENEROLabel;
             System.Windows.Forms.Label mORADALabel;
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Utente));
             System.Windows.Forms.Label label1;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Utente));
             this.bd1 = new BD_Trab.BD();
             this.uTENTEBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.uTENTETableAdapter = new BD_Trab.BDTableAdapters.UTENTETableAdapter();
@@ -54,6 +54,7 @@
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.uTENTEBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button5 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.iD_UTENTETextBox = new System.Windows.Forms.TextBox();
             this.gENEROTextBox = new System.Windows.Forms.TextBox();
@@ -64,9 +65,8 @@
             this.nOMEListBox = new System.Windows.Forms.ListBox();
             this.button4 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.button5 = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             nOMELabel = new System.Windows.Forms.Label();
             iD_UTENTELabel = new System.Windows.Forms.Label();
             nOMELabel1 = new System.Windows.Forms.Label();
@@ -125,6 +125,15 @@
             mORADALabel.Size = new System.Drawing.Size(57, 13);
             mORADALabel.TabIndex = 16;
             mORADALabel.Text = "MORADA:";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(249, 36);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(42, 13);
+            label1.TabIndex = 8;
+            label1.Text = "NOME:";
             // 
             // bd1
             // 
@@ -292,6 +301,16 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
             // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(309, 266);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(135, 47);
+            this.button5.TabIndex = 19;
+            this.button5.Text = "Voltar";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
             // textBox1
             // 
             this.textBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.uTENTEBindingSource, "NOME", true));
@@ -366,6 +385,7 @@
             this.nOMEListBox.Name = "nOMEListBox";
             this.nOMEListBox.Size = new System.Drawing.Size(423, 316);
             this.nOMEListBox.TabIndex = 4;
+            this.nOMEListBox.SelectedIndexChanged += new System.EventHandler(this.nOMEListBox_SelectedIndexChanged);
             // 
             // button4
             // 
@@ -394,46 +414,27 @@
             this.groupBox2.TabIndex = 6;
             this.groupBox2.TabStop = false;
             // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Nome",
-            "ID_Trabalhador",
-            "Genero",
-            "Morada",
-            "Encargo",
-            "Turno"});
-            this.comboBox1.Location = new System.Drawing.Point(74, 33);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(155, 21);
-            this.comboBox1.TabIndex = 6;
-            // 
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(297, 33);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(155, 20);
             this.textBox2.TabIndex = 7;
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
-            // label1
+            // comboBox1
             // 
-            label1.AutoSize = true;
-            label1.Location = new System.Drawing.Point(249, 36);
-            label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(42, 13);
-            label1.TabIndex = 8;
-            label1.Text = "NOME:";
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(309, 266);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(135, 47);
-            this.button5.TabIndex = 19;
-            this.button5.Text = "Voltar";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Nome",
+            "ID_Utente",
+            "Genero",
+            "Morada"});
+            this.comboBox1.Location = new System.Drawing.Point(74, 33);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(155, 21);
+            this.comboBox1.TabIndex = 6;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // Utente
             // 

@@ -58,14 +58,14 @@ namespace BD_Trab
 
         private void button3_Click(object sender, EventArgs e)
         {
-            
             this.tRABALHADORBindingSource.RemoveCurrent();
-            
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            this.tableAdapterManager.UpdateAll(this.bD);
+            this.tRABALHADORBindingSource.AddNew();
+            this.tRABALHADORBindingSource.RemoveCurrent();
+            this.tRABALHADORTableAdapter.Update(this.bD.TRABALHADOR);
             checkClose = false;
             principal.Show();
             Close();
@@ -102,9 +102,9 @@ namespace BD_Trab
             if (!this.Validate())
                 MessageBox.Show("Not Valid!");
             this.tRABALHADORBindingSource.EndEdit();
-           // this.tRABALHADORBindingSource.AddNew();
-            //this.tRABALHADORBindingSource.RemoveCurrent();
-            this.tableAdapterManager.UpdateAll(this.bD);
+            this.tRABALHADORBindingSource.AddNew();
+            this.tRABALHADORBindingSource.RemoveCurrent();
+            this.tRABALHADORTableAdapter.Update(this.bD.TRABALHADOR);
         }
 
 

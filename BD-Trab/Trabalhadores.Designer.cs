@@ -243,7 +243,7 @@
             // 
             this.button2.Location = new System.Drawing.Point(490, 28);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(229, 119);
+            this.button2.Size = new System.Drawing.Size(229, 117);
             this.button2.TabIndex = 13;
             this.button2.Text = "Adicionar";
             this.button2.UseVisualStyleBackColor = true;
@@ -299,7 +299,7 @@
             this.tRABALHADORBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.tRABALHADORBindingNavigator.Name = "tRABALHADORBindingNavigator";
             this.tRABALHADORBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.tRABALHADORBindingNavigator.Size = new System.Drawing.Size(800, 25);
+            this.tRABALHADORBindingNavigator.Size = new System.Drawing.Size(830, 25);
             this.tRABALHADORBindingNavigator.TabIndex = 1;
             this.tRABALHADORBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -477,13 +477,12 @@
             this.groupBox2.Size = new System.Drawing.Size(777, 414);
             this.groupBox2.TabIndex = 9;
             this.groupBox2.TabStop = false;
-            
             // 
             // Trabalhadores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(830, 450);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.tRABALHADORBindingNavigator);
             this.Controls.Add(this.groupBox1);
