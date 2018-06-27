@@ -153,7 +153,7 @@
             // gENEROTextBox
             // 
             this.gENEROTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tRABALHADORBindingSource, "GENERO", true));
-            this.gENEROTextBox.Location = new System.Drawing.Point(316, 352);
+            this.gENEROTextBox.Location = new System.Drawing.Point(439, 360);
             this.gENEROTextBox.Name = "gENEROTextBox";
             this.gENEROTextBox.Size = new System.Drawing.Size(75, 20);
             this.gENEROTextBox.TabIndex = 5;
@@ -169,7 +169,7 @@
             // eNCARGOTextBox
             // 
             this.eNCARGOTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tRABALHADORBindingSource, "ENCARGO", true));
-            this.eNCARGOTextBox.Location = new System.Drawing.Point(405, 378);
+            this.eNCARGOTextBox.Location = new System.Drawing.Point(299, 349);
             this.eNCARGOTextBox.Name = "eNCARGOTextBox";
             this.eNCARGOTextBox.Size = new System.Drawing.Size(74, 20);
             this.eNCARGOTextBox.TabIndex = 9;

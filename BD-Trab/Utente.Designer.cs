@@ -49,9 +49,9 @@
             this.nOMEListBox = new System.Windows.Forms.ListBox();
             this.button4 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
             nOMELabel = new System.Windows.Forms.Label();
             iD_UTENTELabel = new System.Windows.Forms.Label();
             nOMELabel1 = new System.Windows.Forms.Label();
@@ -253,6 +253,19 @@
             this.groupBox2.TabIndex = 6;
             this.groupBox2.TabStop = false;
             // 
+            // comboBox2
+            // 
+            this.comboBox2.CausesValidation = false;
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Items.AddRange(new object[] {
+            "Masculino",
+            "Femenino"});
+            this.comboBox2.Location = new System.Drawing.Point(400, 264);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(316, 21);
+            this.comboBox2.TabIndex = 19;
+            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            // 
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(89, 57);
@@ -275,19 +288,6 @@
             this.comboBox1.Size = new System.Drawing.Size(180, 21);
             this.comboBox1.TabIndex = 6;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.CausesValidation = false;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
-            "Masculino",
-            "Femenino"});
-            this.comboBox2.Location = new System.Drawing.Point(400, 264);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(316, 21);
-            this.comboBox2.TabIndex = 19;
-            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
             // Utente
             // 

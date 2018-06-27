@@ -38,7 +38,7 @@ namespace BD_Trab
                 }
             }
             catch { }
-            gENEROTextBox.Hide();
+           // gENEROTextBox.Hide();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -52,6 +52,24 @@ namespace BD_Trab
         {
             if (!this.Validate())
                 MessageBox.Show("Informação Inválida!");
+
+
+            string id = iD_UTENTETextBox.Text;
+            string nome = textBox1.Text;
+            string genero = gENEROTextBox.Text;
+            string morada = mORADATextBox.Text;
+
+
+            uTENTEBindingSource.RemoveCurrent();
+            uTENTEBindingSource.AddNew();
+            iD_UTENTETextBox.Text = id;
+            textBox1.Text = nome;
+            gENEROTextBox.Text = genero;
+            mORADATextBox.Text = morada;
+
+
+
+
             this.uTENTEBindingSource.EndEdit();
             this.uTENTEBindingSource.AddNew();
             this.uTENTEBindingSource.RemoveCurrent();
@@ -112,7 +130,7 @@ namespace BD_Trab
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
             ComboBox me = sender as ComboBox;
-            gENEROTextBox.Text = me.Text;
+            gENEROTextBox.Text = me.Text.Substring(0, 1);
         }
 
         private void nOMEListBox_SelectedIndexChanged(object sender, EventArgs e)

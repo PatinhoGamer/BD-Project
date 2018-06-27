@@ -53,9 +53,9 @@ namespace BD_Trab
                 }
             }
             catch { }
-            eNCARGOTextBox.Hide();
+           /* eNCARGOTextBox.Hide();
             gENEROTextBox.Hide();
-            tURNOTextBox.Hide();
+            tURNOTextBox.Hide();*/
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -73,6 +73,24 @@ namespace BD_Trab
                 MessageBox.Show("Informação Inválida!");
 
 
+            string id = iD_TRABALHADORTextBox.Text;
+            string nome = nOMETextBox.Text;
+            string genero = gENEROTextBox.Text;
+            string morada = mORADATextBox.Text;
+            string encargo = eNCARGOTextBox.Text;
+            string turno = tURNOTextBox.Text;
+
+
+            tRABALHADORBindingSource.RemoveCurrent();
+            tRABALHADORBindingSource.AddNew();
+            iD_TRABALHADORTextBox.Text = id;
+            nOMETextBox.Text = nome;
+            gENEROTextBox.Text = genero;
+            mORADATextBox.Text = morada;
+            eNCARGOTextBox.Text = encargo;
+            tURNOTextBox.Text = turno;
+
+
             this.tRABALHADORBindingSource.EndEdit();
             this.tRABALHADORBindingSource.AddNew();
             this.tRABALHADORBindingSource.RemoveCurrent();
@@ -80,7 +98,7 @@ namespace BD_Trab
             {
                 this.tableAdapterManager.UpdateAll(this.bD);
             }
-            catch
+            catch   
             {
                 MessageBox.Show("Existe Algum Valor Inválido");
             }
@@ -160,19 +178,19 @@ namespace BD_Trab
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
             ComboBox me = sender as ComboBox;
-            eNCARGOTextBox.Text = me.Text;
+            eNCARGOTextBox.Text = me.Text.Substring(0,1);
         }
 
         private void comboBox4_SelectedIndexChanged(object sender, EventArgs e)
         {
             ComboBox me = sender as ComboBox;
-            tURNOTextBox.Text = me.Text;
+            tURNOTextBox.Text = me.Text.Substring(0, 1);
         }
 
         private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
         {
             ComboBox me = sender as ComboBox;
-            gENEROTextBox.Text = me.Text;
+            gENEROTextBox.Text = me.Text.Substring(0, 1);
         }
     }
 }

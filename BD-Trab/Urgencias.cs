@@ -97,7 +97,7 @@ namespace BD_Trab
         private void button1_Click(object sender, EventArgs e)
         {
             uRGENCIABindingSource.AddNew();
-            //iD_URGENCIATextBox.Text = uRGENCIATableAdapter.GetNextID_Urgencia().ToString();
+            iD_URGENCIATextBox.Text = uRGENCIATableAdapter.GetNextID_Urgencia().ToString();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -108,7 +108,14 @@ namespace BD_Trab
             tRABURGBindingSource.EndEdit();
             tRABURGBindingSource.AddNew();
             tRABURGBindingSource.RemoveCurrent();
-            tableAdapterManager.UpdateAll(bD);
+            try
+            {
+                tableAdapterManager.UpdateAll(bD);
+            }
+            catch
+            {
+                MessageBox.Show("Informação Inválida");
+            }
         }
 
         private void iD_URGENCIAListBox_SelectedIndexChanged(object sender, EventArgs e)
