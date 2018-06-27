@@ -109,8 +109,6 @@ namespace BD_Trab
             tRABURGBindingSource.AddNew();
             tRABURGBindingSource.RemoveCurrent();
             tableAdapterManager.UpdateAll(bD);
-
-
         }
 
         private void iD_URGENCIAListBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -150,7 +148,8 @@ namespace BD_Trab
             iD_TRABALHADORTextBox1.Text = textBox1.Text;
             iD_URGENCIATextBox1.Text = iD_URGENCIATextBox.Text;
             tRABURGBindingSource.EndEdit();
-
+            tRABURGBindingSource.AddNew();
+            tRABURGBindingSource.RemoveCurrent();
         }
     }
 }

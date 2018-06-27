@@ -3541,64 +3541,46 @@ namespace BD_Trab.BDTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(param);
             this._adapter.InsertCommand = new global::Oracle.ManagedDataAccess.Client.OracleCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO \"CTTPSIG13\".\"TRABURG\" (\"ID_URGENCIA\", \"ID_TRABALHADOR\") VALUES (:ID_U" +
-                "RGENCIA, :ID_TRABALHADOR)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO CTTPSIG13.TRABURG\r\n                         (ID_URGENCIA, ID_TRABALHA" +
+                "DOR)\r\nVALUES        (:ID_URGENCIA, :ID_TRABALHADOR)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::Oracle.ManagedDataAccess.Client.OracleParameter();
-            param.ParameterName = "ID_URGENCIA";
-            param.DbType = global::System.Data.DbType.Int16;
-            param.OracleDbTypeEx = global::Oracle.ManagedDataAccess.Client.OracleDbType.Int16;
+            param.ParameterName = ":ID_URGENCIA";
+            param.DbType = global::System.Data.DbType.Decimal;
+            param.OracleDbTypeEx = global::Oracle.ManagedDataAccess.Client.OracleDbType.Decimal;
             param.Size = 22;
             param.IsNullable = true;
             param.SourceColumn = "ID_URGENCIA";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::Oracle.ManagedDataAccess.Client.OracleParameter();
-            param.ParameterName = "ID_TRABALHADOR";
-            param.DbType = global::System.Data.DbType.Int16;
-            param.OracleDbTypeEx = global::Oracle.ManagedDataAccess.Client.OracleDbType.Int16;
+            param.ParameterName = ":ID_TRABALHADOR";
+            param.DbType = global::System.Data.DbType.Decimal;
+            param.OracleDbTypeEx = global::Oracle.ManagedDataAccess.Client.OracleDbType.Decimal;
             param.Size = 22;
             param.IsNullable = true;
             param.SourceColumn = "ID_TRABALHADOR";
             this._adapter.InsertCommand.Parameters.Add(param);
             this._adapter.UpdateCommand = new global::Oracle.ManagedDataAccess.Client.OracleCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE \"CTTPSIG13\".\"TRABURG\" SET \"ID_URGENCIA\" = :ID_URGENCIA, \"ID_TRABALHADOR\" =" +
-                " :ID_TRABALHADOR WHERE ((\"ID_URGENCIA\" = :Original_ID_URGENCIA) AND (\"ID_TRABALH" +
-                "ADOR\" = :Original_ID_TRABALHADOR))";
+            this._adapter.UpdateCommand.CommandText = "UPDATE       CTTPSIG13.TRABURG\r\nSET                ID_URGENCIA = :ID_URGENCIA, ID" +
+                "_TRABALHADOR = :ID_TRABALHADOR\r\nWHERE        (ID_URGENCIA = :ID_URGENCIA) AND (I" +
+                "D_TRABALHADOR = :ID_TRABALHADOR)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::Oracle.ManagedDataAccess.Client.OracleParameter();
-            param.ParameterName = "ID_URGENCIA";
-            param.DbType = global::System.Data.DbType.Int16;
-            param.OracleDbTypeEx = global::Oracle.ManagedDataAccess.Client.OracleDbType.Int16;
+            param.ParameterName = ":ID_URGENCIA";
+            param.DbType = global::System.Data.DbType.Decimal;
+            param.OracleDbTypeEx = global::Oracle.ManagedDataAccess.Client.OracleDbType.Decimal;
             param.Size = 22;
             param.IsNullable = true;
             param.SourceColumn = "ID_URGENCIA";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::Oracle.ManagedDataAccess.Client.OracleParameter();
-            param.ParameterName = "ID_TRABALHADOR";
-            param.DbType = global::System.Data.DbType.Int16;
-            param.OracleDbTypeEx = global::Oracle.ManagedDataAccess.Client.OracleDbType.Int16;
+            param.ParameterName = ":ID_TRABALHADOR";
+            param.DbType = global::System.Data.DbType.Decimal;
+            param.OracleDbTypeEx = global::Oracle.ManagedDataAccess.Client.OracleDbType.Decimal;
             param.Size = 22;
             param.IsNullable = true;
             param.SourceColumn = "ID_TRABALHADOR";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::Oracle.ManagedDataAccess.Client.OracleParameter();
-            param.ParameterName = "Original_ID_URGENCIA";
-            param.DbType = global::System.Data.DbType.Int16;
-            param.OracleDbTypeEx = global::Oracle.ManagedDataAccess.Client.OracleDbType.Int16;
-            param.Size = 22;
-            param.IsNullable = true;
-            param.SourceColumn = "ID_URGENCIA";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::Oracle.ManagedDataAccess.Client.OracleParameter();
-            param.ParameterName = "Original_ID_TRABALHADOR";
-            param.DbType = global::System.Data.DbType.Int16;
-            param.OracleDbTypeEx = global::Oracle.ManagedDataAccess.Client.OracleDbType.Int16;
-            param.Size = 22;
-            param.IsNullable = true;
-            param.SourceColumn = "ID_TRABALHADOR";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
         }
         
@@ -3699,9 +3681,9 @@ namespace BD_Trab.BDTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(short ID_URGENCIA, short ID_TRABALHADOR) {
-            this.Adapter.InsertCommand.Parameters[0].Value = ((short)(ID_URGENCIA));
-            this.Adapter.InsertCommand.Parameters[1].Value = ((short)(ID_TRABALHADOR));
+        public virtual int Insert(decimal ID_URGENCIA, decimal ID_TRABALHADOR) {
+            this.Adapter.InsertCommand.Parameters[0].Value = ((decimal)(ID_URGENCIA));
+            this.Adapter.InsertCommand.Parameters[1].Value = ((decimal)(ID_TRABALHADOR));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -3722,11 +3704,9 @@ namespace BD_Trab.BDTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(short ID_URGENCIA, short ID_TRABALHADOR, short Original_ID_URGENCIA, short Original_ID_TRABALHADOR) {
-            this.Adapter.UpdateCommand.Parameters[0].Value = ((short)(ID_URGENCIA));
-            this.Adapter.UpdateCommand.Parameters[1].Value = ((short)(ID_TRABALHADOR));
-            this.Adapter.UpdateCommand.Parameters[2].Value = ((short)(Original_ID_URGENCIA));
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((short)(Original_ID_TRABALHADOR));
+        public virtual int Update(decimal ID_URGENCIA, decimal ID_TRABALHADOR) {
+            this.Adapter.UpdateCommand.Parameters[0].Value = ((decimal)(ID_URGENCIA));
+            this.Adapter.UpdateCommand.Parameters[1].Value = ((decimal)(ID_TRABALHADOR));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -3741,14 +3721,6 @@ namespace BD_Trab.BDTableAdapters {
                     this.Adapter.UpdateCommand.Connection.Close();
                 }
             }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(short Original_ID_URGENCIA, short Original_ID_TRABALHADOR) {
-            return this.Update(Original_ID_URGENCIA, Original_ID_TRABALHADOR, Original_ID_URGENCIA, Original_ID_TRABALHADOR);
         }
     }
     
