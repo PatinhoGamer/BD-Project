@@ -39,6 +39,9 @@ namespace BD_Trab
             this.comboBox1.SelectedIndex = 0;
             id_urgencia = int.Parse(iD_URGENCIATextBox.Text);
             tRABURGBindingSource.Filter = string.Format("ID_Urgencia = {0}", id_urgencia);
+
+            iD_TRABALHADORTextBox1.Hide();
+            iD_URGENCIATextBox1.Hide();
         }
 
         private void Urgencias_FormClosing(object sender, FormClosingEventArgs e)
@@ -132,6 +135,7 @@ namespace BD_Trab
             try
             {
                 tRABURGBindingSource.RemoveCurrent();
+                Validate();
             }
             catch { }
         }
@@ -154,9 +158,11 @@ namespace BD_Trab
             tRABURGBindingSource.AddNew();
             iD_TRABALHADORTextBox1.Text = textBox1.Text;
             iD_URGENCIATextBox1.Text = iD_URGENCIATextBox.Text;
+            Validate();
             tRABURGBindingSource.EndEdit();
             tRABURGBindingSource.AddNew();
             tRABURGBindingSource.RemoveCurrent();
+            tRABURGTableAdapter.Update(bD.TRABURG);
         }
     }
 }

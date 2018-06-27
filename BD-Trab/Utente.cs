@@ -38,7 +38,7 @@ namespace BD_Trab
                 }
             }
             catch { }
-           // gENEROTextBox.Hide();
+            gENEROTextBox.Hide();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -53,12 +53,11 @@ namespace BD_Trab
             if (!this.Validate())
                 MessageBox.Show("Informação Inválida!");
 
-
+            /*
             string id = iD_UTENTETextBox.Text;
             string nome = textBox1.Text;
             string genero = gENEROTextBox.Text;
             string morada = mORADATextBox.Text;
-
 
             uTENTEBindingSource.RemoveCurrent();
             uTENTEBindingSource.AddNew();
@@ -66,9 +65,7 @@ namespace BD_Trab
             textBox1.Text = nome;
             gENEROTextBox.Text = genero;
             mORADATextBox.Text = morada;
-
-
-
+            */
 
             this.uTENTEBindingSource.EndEdit();
             this.uTENTEBindingSource.AddNew();

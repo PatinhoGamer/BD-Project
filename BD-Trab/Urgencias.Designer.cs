@@ -196,7 +196,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 32;
-            //
+            // 
             // iD_URGENCIATextBox1
             // 
             this.iD_URGENCIATextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tRABURGBindingSource, "ID_URGENCIA", true));
@@ -344,7 +344,6 @@
             "ID_Urgencia",
             "ID_Utente",
             "ID_Trabalhador",
-            "Data_",
             "Descricao"});
             this.comboBox1.Location = new System.Drawing.Point(89, 16);
             this.comboBox1.Name = "comboBox1";

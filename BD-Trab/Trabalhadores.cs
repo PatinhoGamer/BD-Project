@@ -53,9 +53,9 @@ namespace BD_Trab
                 }
             }
             catch { }
-           /* eNCARGOTextBox.Hide();
-            gENEROTextBox.Hide();
-            tURNOTextBox.Hide();*/
+             eNCARGOTextBox.Hide();
+             gENEROTextBox.Hide();
+             tURNOTextBox.Hide();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -64,15 +64,14 @@ namespace BD_Trab
             gENEROTextBox.Text = comboBox3.Text.Substring(0, 1);
             eNCARGOTextBox.Text = comboBox2.Text;
             tURNOTextBox.Text = comboBox4.Text.Substring(0, 1);
+
             this.iD_TRABALHADORTextBox.Text = this.tRABALHADORTableAdapter.GetNextID_Trabalhador().ToString();
+
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (!this.Validate())
-                MessageBox.Show("Informação Inválida!");
-
-
+            /*
             string id = iD_TRABALHADORTextBox.Text;
             string nome = nOMETextBox.Text;
             string genero = gENEROTextBox.Text;
@@ -80,23 +79,24 @@ namespace BD_Trab
             string encargo = eNCARGOTextBox.Text;
             string turno = tURNOTextBox.Text;
 
+            //tRABALHADORBindingSource.RemoveCurrent();
+            //tRABALHADORBindingSource.AddNew();
 
-            tRABALHADORBindingSource.RemoveCurrent();
-            tRABALHADORBindingSource.AddNew();
             iD_TRABALHADORTextBox.Text = id;
             nOMETextBox.Text = nome;
             gENEROTextBox.Text = genero;
             mORADATextBox.Text = morada;
             eNCARGOTextBox.Text = encargo;
             tURNOTextBox.Text = turno;
+            */
 
-
-            this.tRABALHADORBindingSource.EndEdit();
-            this.tRABALHADORBindingSource.AddNew();
-            this.tRABALHADORBindingSource.RemoveCurrent();
+            Validate();
+            tRABALHADORBindingSource.EndEdit();            
+            tRABALHADORBindingSource.AddNew();
+            tRABALHADORBindingSource.RemoveCurrent();
             try
             {
-                this.tableAdapterManager.UpdateAll(this.bD);
+                tableAdapterManager.UpdateAll(bD);
             }
             catch   
             {
@@ -115,10 +115,12 @@ namespace BD_Trab
 
         private void button4_Click(object sender, EventArgs e)
         {
+            Validate();
             this.tRABALHADORBindingSource.EndEdit();
             this.tRABALHADORBindingSource.AddNew();
             this.tRABALHADORBindingSource.RemoveCurrent();
             this.tableAdapterManager.UpdateAll(this.bD);
+            
             checkClose = false;
             principal.Show();
             Hide();
@@ -178,7 +180,7 @@ namespace BD_Trab
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
             ComboBox me = sender as ComboBox;
-            eNCARGOTextBox.Text = me.Text.Substring(0,1);
+            eNCARGOTextBox.Text = me.Text;
         }
 
         private void comboBox4_SelectedIndexChanged(object sender, EventArgs e)
