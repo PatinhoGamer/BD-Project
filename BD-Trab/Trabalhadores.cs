@@ -61,6 +61,9 @@ namespace BD_Trab
         private void button2_Click(object sender, EventArgs e)
         {
             this.tRABALHADORBindingSource.AddNew();
+            gENEROTextBox.Text = comboBox3.Text.Substring(0, 1);
+            eNCARGOTextBox.Text = comboBox2.Text;
+            tURNOTextBox.Text = comboBox4.Text.Substring(0, 1);
             this.iD_TRABALHADORTextBox.Text = this.tRABALHADORTableAdapter.GetNextID_Trabalhador().ToString();
         }
 

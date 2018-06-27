@@ -44,6 +44,7 @@ namespace BD_Trab
         private void button1_Click(object sender, EventArgs e)
         {
             this.uTENTEBindingSource.AddNew();
+            gENEROTextBox.Text = comboBox2.Text.Substring(0,1);
             this.iD_UTENTETextBox.Text = this.uTENTETableAdapter.GetNextID_Utente().ToString();
         }
 
