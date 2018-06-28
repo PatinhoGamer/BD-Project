@@ -22,7 +22,7 @@ namespace BD_Trab
         public FormPrincipal()
         {
             InitializeComponent();
-            groupBox2.Hide();
+            //groupBox2.Hide();
 
             con = new OracleConnection("DATA SOURCE=bd.isec.pt;PASSWORD=bd;PERSIST SECURITY INFO=True;USER ID=CTTPSIG13");
             con.Open();

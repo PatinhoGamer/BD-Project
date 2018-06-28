@@ -27,6 +27,8 @@ namespace BD_Trab
 
         private void Utente_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'bd1.CONTACTOS' table. You can move, or remove it, as needed.
+            this.cONTACTOSTableAdapter.Fill(this.bd1.CONTACTOS);
             // TODO: esta linha de código carrega dados na tabela 'bd1.UTENTE'. Você pode movê-la ou removê-la conforme necessário.
             this.uTENTETableAdapter.Fill(this.bd1.UTENTE);
             this.comboBox1.SelectedIndex = 0;
@@ -40,6 +42,8 @@ namespace BD_Trab
             }
             catch { }
             gENEROTextBox.Hide();
+
+            cONTACTOSBindingSource.Filter = "id_utente=" + iD_UTENTETextBox.Text;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -56,7 +60,6 @@ namespace BD_Trab
             string genero = gENEROTextBox.Text;
             string morada = mORADATextBox.Text;
 
-
             OracleCommand comm = new OracleCommand(string.Format("update utente" +
                 " set nome='{0}',genero='{1}',morada='{2}'" +
                 " where id_utente={3}"
@@ -66,6 +69,9 @@ namespace BD_Trab
             uTENTEBindingSource.EndEdit();
             uTENTEBindingSource.AddNew();
             uTENTEBindingSource.RemoveCurrent();
+            cONTACTOSBindingSource.EndEdit();
+            cONTACTOSBindingSource.AddNew();
+            cONTACTOSBindingSource.RemoveCurrent();
             try
             {
                 comm.ExecuteNonQuery();
@@ -136,6 +142,35 @@ namespace BD_Trab
                     if (gENEROTextBox.Text[0] == arrayGenero[i])
                         comboBox2.SelectedIndex = i;
                 }
+
+                cONTACTOSBindingSource.Filter = "id_utente=" + iD_UTENTETextBox.Text;
+            }
+            catch { }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            cONTACTOSBindingSource.AddNew();
+            iD_UTENTETextBox1.Text = iD_UTENTETextBox.Text;
+            cONTACTOTextBox1.Text = textBox3.Text;
+
+
+            OracleCommand comm = new OracleCommand(string.Format("insert into contactos values('{0}','{1}')"
+                , iD_UTENTETextBox.Text, cONTACTOTextBox1.Text), principal.GetOracleConnection());
+            comm.ExecuteNonQuery();
+
+            cONTACTOSBindingSource.AddNew();
+            cONTACTOSBindingSource.RemoveCurrent();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                OracleCommand comm = new OracleCommand(string.Format("delete from contactos where id_utente = {0}", iD_UTENTETextBox.Text), principal.GetOracleConnection());
+                comm.ExecuteNonQuery();
+
+                cONTACTOSBindingSource.RemoveCurrent();
             }
             catch { }
         }

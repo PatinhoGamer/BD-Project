@@ -151,15 +151,11 @@ namespace BD_Trab
         {
             try
             {
-                string id_urg = iD_URGENCIATextBox1.Text;
-                string id_trab = iD_TRABALHADORTextBox1.Text;
-
-                OracleCommand comm = new OracleCommand(string.Format("delete from traburg where id_urgencia = {0} and id_trabalhador = {1}", id_urg, id_trab), principal.GetOracleConnection());
+                OracleCommand comm = new OracleCommand(string.Format("delete from traburg where id_urgencia = {0} and id_trabalhador = {1}"
+                    , iD_URGENCIATextBox1.Text, iD_TRABALHADORTextBox1.Text), principal.GetOracleConnection());
                 comm.ExecuteNonQuery();
-
-
+                
                 tRABURGBindingSource.RemoveCurrent();
-                Validate();
             }
             catch { }
         }

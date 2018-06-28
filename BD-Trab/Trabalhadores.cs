@@ -30,6 +30,8 @@ namespace BD_Trab
 
         private void Trabalhadores_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'bD.CONTACTOS' table. You can move, or remove it, as needed.
+            this.cONTACTOSTableAdapter.Fill(this.bD.CONTACTOS);
             // TODO: esta linha de código carrega dados na tabela 'bD.TRABALHADOR'. Você pode movê-la ou removê-la conforme necessário.
             this.tRABALHADORTableAdapter.Fill(this.bD.TRABALHADOR);
 
@@ -187,6 +189,11 @@ namespace BD_Trab
         {
             ComboBox me = sender as ComboBox;
             gENEROTextBox.Text = me.Text.Substring(0, 1);
+        }
+
+        private void cONTACTOListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
