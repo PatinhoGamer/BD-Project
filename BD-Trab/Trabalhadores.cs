@@ -12,7 +12,7 @@ namespace BD_Trab
 {
     public partial class Trabalhadores : Form
     {
-        private FormPrincipal principal;
+        private Form principal;
         private string search;
         private string filter;
         private bool checkClose = true;
@@ -22,7 +22,7 @@ namespace BD_Trab
 
         public Trabalhadores(Form form)
         {
-            principal = (FormPrincipal)form;
+            principal = form;
             InitializeComponent();
         }
 

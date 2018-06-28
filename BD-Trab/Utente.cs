@@ -12,7 +12,7 @@ namespace BD_Trab
 {
     public partial class Utente : Form
     {
-        private FormPrincipal principal;
+        private Form principal;
         private string search;
         private string filter;
         private bool checkClose = true;
@@ -20,7 +20,7 @@ namespace BD_Trab
 
         public Utente(Form form)
         {
-            principal = (FormPrincipal)form;
+            principal = form;
             InitializeComponent();
         }
 

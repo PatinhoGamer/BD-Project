@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Oracle.ManagedDataAccess.Client;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,7 +14,7 @@ namespace BD_Trab
 {
     public partial class Urgencias : Form
     {
-        private FormPrincipal principal;
+        private Form principal;
         private bool checkClose = true;
         private string search;
         private string filter;
@@ -22,7 +23,7 @@ namespace BD_Trab
         public Urgencias(Form form)
         {
             InitializeComponent();
-            principal = (FormPrincipal)form;
+            principal = form;
         }
 
         private void Urgencias_Load(object sender, EventArgs e)
@@ -134,6 +135,14 @@ namespace BD_Trab
         {
             try
             {
+                string id_urg = iD_URGENCIATextBox1.Text;
+                string id_trab = iD_TRABALHADORTextBox1.Text;
+                OracleConnection con = new OracleConnection("DATA SOURCE=bd.isec.pt;PASSWORD=bd;PERSIST SECURITY INFO=True;USER ID=CTTPSIG13");
+                OracleCommand comm = new OracleCommand(string.Format("delete from traburg where id_urgencia = {0} and id_trabalhador = {1}", id_urg, id_trab), con);
+                con.Open();
+                comm.ExecuteNonQuery();
+
+
                 tRABURGBindingSource.RemoveCurrent();
                 Validate();
             }
@@ -158,11 +167,17 @@ namespace BD_Trab
             tRABURGBindingSource.AddNew();
             iD_TRABALHADORTextBox1.Text = textBox1.Text;
             iD_URGENCIATextBox1.Text = iD_URGENCIATextBox.Text;
-            Validate();
-            tRABURGBindingSource.EndEdit();
+
+            string id_urg = iD_URGENCIATextBox.Text;
+            string id_trab = textBox1.Text;
+
+            OracleConnection con = new OracleConnection("DATA SOURCE=bd.isec.pt;PASSWORD=bd;PERSIST SECURITY INFO=True;USER ID=CTTPSIG13");
+            con.Open();
+            OracleCommand comm = new OracleCommand(string.Format("insert into traburg values('{0}','{1}')", id_urg,id_trab),con);
+            comm.ExecuteNonQuery();
+
             tRABURGBindingSource.AddNew();
             tRABURGBindingSource.RemoveCurrent();
-            tRABURGTableAdapter.Update(bD.TRABURG);
         }
     }
 }
