@@ -7,12 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Oracle.ManagedDataAccess.Client;
 
 namespace BD_Trab
 {
     public partial class Trabalhadores : Form
     {
-        private Form principal;
+        private FormPrincipal principal;
         private string search;
         private string filter;
         private bool checkClose = true;
@@ -22,7 +23,7 @@ namespace BD_Trab
 
         public Trabalhadores(Form form)
         {
-            principal = form;
+            principal = (FormPrincipal)form;
             InitializeComponent();
         }
 
@@ -71,7 +72,6 @@ namespace BD_Trab
 
         private void button1_Click(object sender, EventArgs e)
         {
-            /*
             string id = iD_TRABALHADORTextBox.Text;
             string nome = nOMETextBox.Text;
             string genero = gENEROTextBox.Text;
@@ -79,28 +79,18 @@ namespace BD_Trab
             string encargo = eNCARGOTextBox.Text;
             string turno = tURNOTextBox.Text;
 
-            //tRABALHADORBindingSource.RemoveCurrent();
-            //tRABALHADORBindingSource.AddNew();
-
-            iD_TRABALHADORTextBox.Text = id;
-            nOMETextBox.Text = nome;
-            gENEROTextBox.Text = genero;
-            mORADATextBox.Text = morada;
-            eNCARGOTextBox.Text = encargo;
-            tURNOTextBox.Text = turno;
-            */
-
-            Validate();
-            tRABALHADORBindingSource.EndEdit();            
-            tRABALHADORBindingSource.AddNew();
-            tRABALHADORBindingSource.RemoveCurrent();
+            OracleCommand comm = new OracleCommand(string.Format("update trabalhador" +
+                " set nome='{0}',genero='{1}',morada='{2}',encargo='{3}',turno='{4}'" +
+                " where id_trabalhador={5}"
+                , nome,genero,morada,encargo,turno,id), 
+                principal.GetOracleConnection());
             try
             {
-                tableAdapterManager.UpdateAll(bD);
+                comm.ExecuteNonQuery();
             }
-            catch   
+            catch
             {
-                MessageBox.Show("Existe Algum Valor Inválido");
+                MessageBox.Show("Informação Inválida");
             }
         }
 

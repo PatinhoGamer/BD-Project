@@ -14,7 +14,7 @@ namespace BD_Trab
 {
     public partial class Urgencias : Form
     {
-        private Form principal;
+        private FormPrincipal principal;
         private bool checkClose = true;
         private string search;
         private string filter;
@@ -23,7 +23,7 @@ namespace BD_Trab
         public Urgencias(Form form)
         {
             InitializeComponent();
-            principal = form;
+            principal = (FormPrincipal)form;
         }
 
         private void Urgencias_Load(object sender, EventArgs e)
@@ -106,15 +106,26 @@ namespace BD_Trab
 
         private void button2_Click(object sender, EventArgs e)
         {
-            uRGENCIABindingSource.EndEdit();
-            uRGENCIABindingSource.AddNew();
-            uRGENCIABindingSource.RemoveCurrent();
-            tRABURGBindingSource.EndEdit();
-            tRABURGBindingSource.AddNew();
-            tRABURGBindingSource.RemoveCurrent();
+            string id_urg = iD_URGENCIATextBox.Text;
+            string id_utente = iD_UTENTETextBox.Text;
+            string id_trab = iD_TRABALHADORTextBox.Text;
+            string[] array_data = dATA_DateTimePicker.Text.Split(' ');
+            string desc = dESCRICAOTextBox.Text;
+
+            string[] lista_meses = { "janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho", "agosto", "setembro ", "outubro", "novembro", "dezembro" };
+            int mes = 0;
+            for (int i = 0; i < lista_meses.Length; i++)
+                if (lista_meses[i] == array_data[2])
+                    mes = i + 1;
+            string data_pronta = string.Format("{0}-{1}-{2}", array_data[4], mes, array_data[0]);
+
+            OracleCommand comm = new OracleCommand(string.Format("update urgencia" +
+                " set id_utente={0},id_trabalhador={1},data_=to_date('{2}','YYYY-MM-DD'),descricao='{3}'" +
+                " where id_urgencia = {4}"
+                , id_utente, id_trab, data_pronta, desc, id_urg), principal.GetOracleConnection());
             try
             {
-                tableAdapterManager.UpdateAll(bD);
+                comm.ExecuteNonQuery();
             }
             catch
             {
@@ -137,9 +148,8 @@ namespace BD_Trab
             {
                 string id_urg = iD_URGENCIATextBox1.Text;
                 string id_trab = iD_TRABALHADORTextBox1.Text;
-                OracleConnection con = new OracleConnection("DATA SOURCE=bd.isec.pt;PASSWORD=bd;PERSIST SECURITY INFO=True;USER ID=CTTPSIG13");
-                OracleCommand comm = new OracleCommand(string.Format("delete from traburg where id_urgencia = {0} and id_trabalhador = {1}", id_urg, id_trab), con);
-                con.Open();
+
+                OracleCommand comm = new OracleCommand(string.Format("delete from traburg where id_urgencia = {0} and id_trabalhador = {1}", id_urg, id_trab), principal.GetOracleConnection());
                 comm.ExecuteNonQuery();
 
 
@@ -171,9 +181,7 @@ namespace BD_Trab
             string id_urg = iD_URGENCIATextBox.Text;
             string id_trab = textBox1.Text;
 
-            OracleConnection con = new OracleConnection("DATA SOURCE=bd.isec.pt;PASSWORD=bd;PERSIST SECURITY INFO=True;USER ID=CTTPSIG13");
-            con.Open();
-            OracleCommand comm = new OracleCommand(string.Format("insert into traburg values('{0}','{1}')", id_urg,id_trab),con);
+            OracleCommand comm = new OracleCommand(string.Format("insert into traburg values('{0}','{1}')", id_urg, id_trab), principal.GetOracleConnection());
             comm.ExecuteNonQuery();
 
             tRABURGBindingSource.AddNew();

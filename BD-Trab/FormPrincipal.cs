@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Oracle.ManagedDataAccess.Client;
 
 namespace BD_Trab
 {
@@ -16,12 +17,17 @@ namespace BD_Trab
         private Urgencias Purge;
         private Utente Putente;
         private Trabalhadores Ptrab;
+        private OracleConnection con;
 
         public FormPrincipal()
         {
             InitializeComponent();
             //groupBox2.Hide();
+
+            con = new OracleConnection("DATA SOURCE=bd.isec.pt;PASSWORD=bd;PERSIST SECURITY INFO=True;USER ID=CTTPSIG13");
+            con.Open();
         }
+        public OracleConnection GetOracleConnection() { return con; }
 
         Login login = new Login("admin", "1234");
 

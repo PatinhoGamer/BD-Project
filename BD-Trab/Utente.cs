@@ -7,12 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Oracle.ManagedDataAccess.Client;
 
 namespace BD_Trab
 {
     public partial class Utente : Form
     {
-        private Form principal;
+        private FormPrincipal principal;
         private string search;
         private string filter;
         private bool checkClose = true;
@@ -20,7 +21,7 @@ namespace BD_Trab
 
         public Utente(Form form)
         {
-            principal = form;
+            principal = (FormPrincipal)form;
             InitializeComponent();
         }
 
@@ -50,33 +51,24 @@ namespace BD_Trab
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (!this.Validate())
-                MessageBox.Show("Informação Inválida!");
-
-            /*
             string id = iD_UTENTETextBox.Text;
             string nome = textBox1.Text;
             string genero = gENEROTextBox.Text;
             string morada = mORADATextBox.Text;
 
-            uTENTEBindingSource.RemoveCurrent();
-            uTENTEBindingSource.AddNew();
-            iD_UTENTETextBox.Text = id;
-            textBox1.Text = nome;
-            gENEROTextBox.Text = genero;
-            mORADATextBox.Text = morada;
-            */
 
-            this.uTENTEBindingSource.EndEdit();
-            this.uTENTEBindingSource.AddNew();
-            this.uTENTEBindingSource.RemoveCurrent();
+            OracleCommand comm = new OracleCommand(string.Format("update utente" +
+                " set nome='{0}',genero='{1}',morada='{2}'" +
+                " where id_utente={3}"
+                , nome, genero, morada, id),
+                principal.GetOracleConnection());
             try
             {
-                this.tableAdapterManager.UpdateAll(this.bd1);
+                comm.ExecuteNonQuery();
             }
             catch
             {
-                MessageBox.Show("Existe Algum Valor Inválido");
+                MessageBox.Show("Informação Inválida");
             }
         }
 
