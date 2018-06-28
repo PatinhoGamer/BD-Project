@@ -44,6 +44,9 @@ namespace BD_Trab
             gENEROTextBox.Hide();
 
             cONTACTOSBindingSource.Filter = "id_utente=" + iD_UTENTETextBox.Text;
+
+            iD_UTENTETextBox1.Hide();
+            cONTACTOTextBox1.Hide();
         }
 
         private void button1_Click(object sender, EventArgs e)
