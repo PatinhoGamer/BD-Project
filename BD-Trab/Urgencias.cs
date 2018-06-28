@@ -123,9 +123,14 @@ namespace BD_Trab
                 " set id_utente={0},id_trabalhador={1},data_=to_date('{2}','YYYY-MM-DD'),descricao='{3}'" +
                 " where id_urgencia = {4}"
                 , id_utente, id_trab, data_pronta, desc, id_urg), principal.GetOracleConnection());
+
+            uRGENCIABindingSource.EndEdit();
+            uRGENCIABindingSource.AddNew();
+            uRGENCIABindingSource.RemoveCurrent();
             try
             {
                 comm.ExecuteNonQuery();
+                tableAdapterManager.UpdateAll(bD);
             }
             catch
             {

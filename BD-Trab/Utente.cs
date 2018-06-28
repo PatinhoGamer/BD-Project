@@ -62,9 +62,14 @@ namespace BD_Trab
                 " where id_utente={3}"
                 , nome, genero, morada, id),
                 principal.GetOracleConnection());
+
+            uTENTEBindingSource.EndEdit();
+            uTENTEBindingSource.AddNew();
+            uTENTEBindingSource.RemoveCurrent();
             try
             {
                 comm.ExecuteNonQuery();
+                tableAdapterManager.UpdateAll(bd1);
             }
             catch
             {
@@ -84,10 +89,10 @@ namespace BD_Trab
 
         private void button4_Click(object sender, EventArgs e)
         {
-            this.uTENTEBindingSource.EndEdit();
-            this.uTENTEBindingSource.AddNew();
-            this.uTENTEBindingSource.RemoveCurrent();
-            this.tableAdapterManager.UpdateAll(this.bd1);
+            uTENTEBindingSource.EndEdit();
+            uTENTEBindingSource.AddNew();
+            uTENTEBindingSource.RemoveCurrent();
+            tableAdapterManager.UpdateAll(bd1);
             checkClose = false;
             principal.Show();
             Hide();

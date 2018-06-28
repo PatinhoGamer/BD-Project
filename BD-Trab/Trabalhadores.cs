@@ -82,11 +82,16 @@ namespace BD_Trab
             OracleCommand comm = new OracleCommand(string.Format("update trabalhador" +
                 " set nome='{0}',genero='{1}',morada='{2}',encargo='{3}',turno='{4}'" +
                 " where id_trabalhador={5}"
-                , nome,genero,morada,encargo,turno,id), 
+                , nome,genero,morada,encargo,turno,id),
                 principal.GetOracleConnection());
+
+            tRABALHADORBindingSource.EndEdit();
+            tRABALHADORBindingSource.AddNew();
+            tRABALHADORBindingSource.RemoveCurrent();
             try
             {
                 comm.ExecuteNonQuery();
+                tableAdapterManager.UpdateAll(bD);
             }
             catch
             {
@@ -105,7 +110,6 @@ namespace BD_Trab
 
         private void button4_Click(object sender, EventArgs e)
         {
-            Validate();
             this.tRABALHADORBindingSource.EndEdit();
             this.tRABALHADORBindingSource.AddNew();
             this.tRABALHADORBindingSource.RemoveCurrent();

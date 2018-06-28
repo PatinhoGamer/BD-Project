@@ -136,9 +136,9 @@
             this.groupBox1.Size = new System.Drawing.Size(237, 130);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
-            // 
+            //
             // groupBox2
-            // 
+            //
             this.groupBox2.Controls.Add(this.button4);
             this.groupBox2.Controls.Add(this.button2);
             this.groupBox2.Controls.Add(this.button1);
@@ -147,9 +147,9 @@
             this.groupBox2.Size = new System.Drawing.Size(537, 115);
             this.groupBox2.TabIndex = 9;
             this.groupBox2.TabStop = false;
-            // 
+            //
             // button4
-            // 
+            //
             this.button4.Location = new System.Drawing.Point(402, 19);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(120, 80);
@@ -170,7 +170,6 @@
             this.Name = "FormPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Principal";
-            this.Load += new System.EventHandler(this.FormPrincipal_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.groupBox1.ResumeLayout(false);

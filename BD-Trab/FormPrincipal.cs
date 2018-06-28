@@ -22,7 +22,7 @@ namespace BD_Trab
         public FormPrincipal()
         {
             InitializeComponent();
-            //groupBox2.Hide();
+            groupBox2.Hide();
 
             con = new OracleConnection("DATA SOURCE=bd.isec.pt;PASSWORD=bd;PERSIST SECURITY INFO=True;USER ID=CTTPSIG13");
             con.Open();
@@ -30,36 +30,6 @@ namespace BD_Trab
         public OracleConnection GetOracleConnection() { return con; }
 
         Login login = new Login("admin", "1234");
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void FormPrincipal_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void consultarToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void utentesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void trabalhadoresToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void urgênciasToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void pesquisarToolStripMenuItem_Click(object sender, EventArgs e)
         {
