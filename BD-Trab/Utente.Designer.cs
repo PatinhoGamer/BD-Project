@@ -50,17 +50,17 @@
             this.nOMEListBox = new System.Windows.Forms.ListBox();
             this.button4 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cONTACTOTextBox1 = new System.Windows.Forms.TextBox();
+            this.cONTACTOSBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.iD_UTENTETextBox1 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.cONTACTOListBox = new System.Windows.Forms.ListBox();
-            this.cONTACTOSBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.cONTACTOSTableAdapter = new BD_Trab.BDTableAdapters.CONTACTOSTableAdapter();
-            this.iD_UTENTETextBox1 = new System.Windows.Forms.TextBox();
-            this.cONTACTOTextBox1 = new System.Windows.Forms.TextBox();
             nOMELabel = new System.Windows.Forms.Label();
             iD_UTENTELabel = new System.Windows.Forms.Label();
             nOMELabel1 = new System.Windows.Forms.Label();
@@ -128,6 +128,15 @@
             label1.TabIndex = 8;
             label1.Text = "Pesquisa:";
             // 
+            // cONTACTOLabel
+            // 
+            cONTACTOLabel.AutoSize = true;
+            cONTACTOLabel.Location = new System.Drawing.Point(332, 255);
+            cONTACTOLabel.Name = "cONTACTOLabel";
+            cONTACTOLabel.Size = new System.Drawing.Size(76, 13);
+            cONTACTOLabel.TabIndex = 29;
+            cONTACTOLabel.Text = "CONTACTOS:";
+            // 
             // bd1
             // 
             this.bd1.DataSetName = "BD";
@@ -172,7 +181,7 @@
             // gENEROTextBox
             // 
             this.gENEROTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.uTENTEBindingSource, "GENERO", true));
-            this.gENEROTextBox.Location = new System.Drawing.Point(298, 0);
+            this.gENEROTextBox.Location = new System.Drawing.Point(294, 400);
             this.gENEROTextBox.Name = "gENEROTextBox";
             this.gENEROTextBox.Size = new System.Drawing.Size(114, 20);
             this.gENEROTextBox.TabIndex = 15;
@@ -241,6 +250,7 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.cONTACTOTextBox1);
+            this.groupBox2.Controls.Add(this.gENEROTextBox);
             this.groupBox2.Controls.Add(this.iD_UTENTETextBox1);
             this.groupBox2.Controls.Add(this.textBox3);
             this.groupBox2.Controls.Add(this.button6);
@@ -269,6 +279,68 @@
             this.groupBox2.Size = new System.Drawing.Size(790, 445);
             this.groupBox2.TabIndex = 6;
             this.groupBox2.TabStop = false;
+            // 
+            // cONTACTOTextBox1
+            // 
+            this.cONTACTOTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.cONTACTOSBindingSource, "CONTACTO", true));
+            this.cONTACTOTextBox1.Location = new System.Drawing.Point(286, 369);
+            this.cONTACTOTextBox1.Name = "cONTACTOTextBox1";
+            this.cONTACTOTextBox1.Size = new System.Drawing.Size(120, 20);
+            this.cONTACTOTextBox1.TabIndex = 35;
+            // 
+            // cONTACTOSBindingSource
+            // 
+            this.cONTACTOSBindingSource.DataMember = "CONTACTOS";
+            this.cONTACTOSBindingSource.DataSource = this.bd1;
+            // 
+            // iD_UTENTETextBox1
+            // 
+            this.iD_UTENTETextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.cONTACTOSBindingSource, "ID_UTENTE", true));
+            this.iD_UTENTETextBox1.Location = new System.Drawing.Point(288, 325);
+            this.iD_UTENTETextBox1.Name = "iD_UTENTETextBox1";
+            this.iD_UTENTETextBox1.Size = new System.Drawing.Size(120, 20);
+            this.iD_UTENTETextBox1.TabIndex = 34;
+            // 
+            // textBox3
+            // 
+            this.textBox3.CausesValidation = false;
+            this.textBox3.Location = new System.Drawing.Point(578, 255);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(175, 20);
+            this.textBox3.TabIndex = 33;
+            // 
+            // button6
+            // 
+            this.button6.CausesValidation = false;
+            this.button6.Location = new System.Drawing.Point(578, 322);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(75, 23);
+            this.button6.TabIndex = 32;
+            this.button6.Text = "Apagar";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // button5
+            // 
+            this.button5.CausesValidation = false;
+            this.button5.Location = new System.Drawing.Point(578, 293);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(75, 23);
+            this.button5.TabIndex = 31;
+            this.button5.Text = "Adicionar";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // cONTACTOListBox
+            // 
+            this.cONTACTOListBox.CausesValidation = false;
+            this.cONTACTOListBox.DataSource = this.cONTACTOSBindingSource;
+            this.cONTACTOListBox.DisplayMember = "CONTACTO";
+            this.cONTACTOListBox.FormattingEnabled = true;
+            this.cONTACTOListBox.Location = new System.Drawing.Point(437, 255);
+            this.cONTACTOListBox.Name = "cONTACTOListBox";
+            this.cONTACTOListBox.Size = new System.Drawing.Size(119, 134);
+            this.cONTACTOListBox.TabIndex = 30;
             // 
             // comboBox2
             // 
@@ -306,80 +378,9 @@
             this.comboBox1.TabIndex = 6;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
-            // textBox3
-            // 
-            this.textBox3.CausesValidation = false;
-            this.textBox3.Location = new System.Drawing.Point(578, 255);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(175, 20);
-            this.textBox3.TabIndex = 33;
-            // 
-            // button6
-            // 
-            this.button6.CausesValidation = false;
-            this.button6.Location = new System.Drawing.Point(578, 322);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(75, 23);
-            this.button6.TabIndex = 32;
-            this.button6.Text = "Apagar";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
-            // 
-            // button5
-            // 
-            this.button5.CausesValidation = false;
-            this.button5.Location = new System.Drawing.Point(578, 293);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
-            this.button5.TabIndex = 31;
-            this.button5.Text = "Adicionar";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
-            // 
-            // cONTACTOLabel
-            // 
-            cONTACTOLabel.AutoSize = true;
-            cONTACTOLabel.Location = new System.Drawing.Point(332, 255);
-            cONTACTOLabel.Name = "cONTACTOLabel";
-            cONTACTOLabel.Size = new System.Drawing.Size(76, 13);
-            cONTACTOLabel.TabIndex = 29;
-            cONTACTOLabel.Text = "CONTACTOS:";
-            // 
-            // cONTACTOListBox
-            // 
-            this.cONTACTOListBox.CausesValidation = false;
-            this.cONTACTOListBox.DataSource = this.cONTACTOSBindingSource;
-            this.cONTACTOListBox.DisplayMember = "CONTACTO";
-            this.cONTACTOListBox.FormattingEnabled = true;
-            this.cONTACTOListBox.Location = new System.Drawing.Point(437, 255);
-            this.cONTACTOListBox.Name = "cONTACTOListBox";
-            this.cONTACTOListBox.Size = new System.Drawing.Size(119, 134);
-            this.cONTACTOListBox.TabIndex = 30;
-            // 
-            // cONTACTOSBindingSource
-            // 
-            this.cONTACTOSBindingSource.DataMember = "CONTACTOS";
-            this.cONTACTOSBindingSource.DataSource = this.bd1;
-            // 
             // cONTACTOSTableAdapter
             // 
             this.cONTACTOSTableAdapter.ClearBeforeFill = true;
-            // 
-            // iD_UTENTETextBox1
-            // 
-            this.iD_UTENTETextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.cONTACTOSBindingSource, "ID_UTENTE", true));
-            this.iD_UTENTETextBox1.Location = new System.Drawing.Point(288, 325);
-            this.iD_UTENTETextBox1.Name = "iD_UTENTETextBox1";
-            this.iD_UTENTETextBox1.Size = new System.Drawing.Size(120, 20);
-            this.iD_UTENTETextBox1.TabIndex = 34;
-            // 
-            // cONTACTOTextBox1
-            // 
-            this.cONTACTOTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.cONTACTOSBindingSource, "CONTACTO", true));
-            this.cONTACTOTextBox1.Location = new System.Drawing.Point(286, 369);
-            this.cONTACTOTextBox1.Name = "cONTACTOTextBox1";
-            this.cONTACTOTextBox1.Size = new System.Drawing.Size(120, 20);
-            this.cONTACTOTextBox1.TabIndex = 35;
             // 
             // Utente
             // 
@@ -387,7 +388,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(802, 458);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.gENEROTextBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "Utente";
@@ -401,7 +401,6 @@
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cONTACTOSBindingSource)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

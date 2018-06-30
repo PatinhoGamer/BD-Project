@@ -55,10 +55,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.cONTACTOSBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cONTACTOSBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cONTACTOSTableAdapter = new BD_Trab.BDTableAdapters.CONTACTOSTableAdapter();
             iD_TRABALHADORLabel = new System.Windows.Forms.Label();
             nOMELabel = new System.Windows.Forms.Label();
@@ -77,9 +77,9 @@
             iD_TRABALHADORLabel.AutoSize = true;
             iD_TRABALHADORLabel.Location = new System.Drawing.Point(335, 186);
             iD_TRABALHADORLabel.Name = "iD_TRABALHADORLabel";
-            iD_TRABALHADORLabel.Size = new System.Drawing.Size(105, 13);
+            iD_TRABALHADORLabel.Size = new System.Drawing.Size(21, 13);
             iD_TRABALHADORLabel.TabIndex = 0;
-            iD_TRABALHADORLabel.Text = "ID TRABALHADOR:";
+            iD_TRABALHADORLabel.Text = "ID:";
             // 
             // nOMELabel
             // 
@@ -327,11 +327,6 @@
             this.groupBox2.TabIndex = 9;
             this.groupBox2.TabStop = false;
             // 
-            // cONTACTOSBindingSource
-            // 
-            this.cONTACTOSBindingSource.DataMember = "CONTACTOS";
-            this.cONTACTOSBindingSource.DataSource = this.bD;
-            // 
             // comboBox4
             // 
             this.comboBox4.CausesValidation = false;
@@ -371,6 +366,11 @@
             this.comboBox2.Size = new System.Drawing.Size(317, 21);
             this.comboBox2.TabIndex = 14;
             this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            // 
+            // cONTACTOSBindingSource
+            // 
+            this.cONTACTOSBindingSource.DataMember = "CONTACTOS";
+            this.cONTACTOSBindingSource.DataSource = this.bD;
             // 
             // cONTACTOSTableAdapter
             // 
