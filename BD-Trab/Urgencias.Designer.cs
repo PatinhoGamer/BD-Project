@@ -186,7 +186,7 @@
             this.groupBox2.Controls.Add(this.button3);
             this.groupBox2.Location = new System.Drawing.Point(12, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(786, 426);
+            this.groupBox2.Size = new System.Drawing.Size(778, 426);
             this.groupBox2.TabIndex = 7;
             this.groupBox2.TabStop = false;
             // 
@@ -250,7 +250,7 @@
             this.iD_TRABALHADORListBox.DataSource = this.tRABURGBindingSource;
             this.iD_TRABALHADORListBox.DisplayMember = "ID_TRABALHADOR";
             this.iD_TRABALHADORListBox.FormattingEnabled = true;
-            this.iD_TRABALHADORListBox.Location = new System.Drawing.Point(455, 256);
+            this.iD_TRABALHADORListBox.Location = new System.Drawing.Point(460, 256);
             this.iD_TRABALHADORListBox.Name = "iD_TRABALHADORListBox";
             this.iD_TRABALHADORListBox.Size = new System.Drawing.Size(76, 147);
             this.iD_TRABALHADORListBox.TabIndex = 24;
@@ -321,7 +321,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(618, 359);
+            this.button4.Location = new System.Drawing.Point(637, 373);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(135, 47);
             this.button4.TabIndex = 5;
@@ -353,9 +353,9 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(294, 38);
+            this.button1.Location = new System.Drawing.Point(305, 41);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(122, 37);
+            this.button1.Size = new System.Drawing.Size(122, 34);
             this.button1.TabIndex = 8;
             this.button1.Text = "Adicionar Novo";
             this.button1.UseVisualStyleBackColor = true;
@@ -375,7 +375,7 @@
             // 
             this.button3.Location = new System.Drawing.Point(636, 41);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(130, 29);
+            this.button3.Size = new System.Drawing.Size(130, 34);
             this.button3.TabIndex = 10;
             this.button3.Text = "Apagar Selecionado";
             this.button3.UseVisualStyleBackColor = true;

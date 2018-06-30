@@ -244,7 +244,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(651, 402);
+            this.button4.Location = new System.Drawing.Point(651, 390);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(133, 37);
             this.button4.TabIndex = 4;
@@ -323,7 +323,7 @@
             this.groupBox2.Controls.Add(tURNOLabel);
             this.groupBox2.Location = new System.Drawing.Point(12, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(790, 445);
+            this.groupBox2.Size = new System.Drawing.Size(790, 433);
             this.groupBox2.TabIndex = 9;
             this.groupBox2.TabStop = false;
             // 

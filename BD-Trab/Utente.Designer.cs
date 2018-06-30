@@ -239,7 +239,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(635, 373);
+            this.button4.Location = new System.Drawing.Point(637, 381);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(135, 47);
             this.button4.TabIndex = 5;
@@ -276,7 +276,7 @@
             this.groupBox2.Controls.Add(this.button3);
             this.groupBox2.Location = new System.Drawing.Point(12, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(790, 445);
+            this.groupBox2.Size = new System.Drawing.Size(778, 434);
             this.groupBox2.TabIndex = 6;
             this.groupBox2.TabStop = false;
             // 
