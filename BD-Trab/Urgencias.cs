@@ -110,10 +110,9 @@ namespace BD_Trab
             try
             {
                 uRGENCIABindingSource.AddNew();
+                iD_URGENCIATextBox.Text = uRGENCIATableAdapter.GetNextID_Urgencia().ToString();
             }
             catch { }
-            iD_URGENCIATextBox.Text = uRGENCIATableAdapter.GetNextID_Urgencia().ToString();
-            
         }
 
         private void button2_Click(object sender, EventArgs e)
