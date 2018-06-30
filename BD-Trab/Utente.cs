@@ -51,9 +51,13 @@ namespace BD_Trab
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.uTENTEBindingSource.AddNew();
-            gENEROTextBox.Text = comboBox2.Text.Substring(0,1);
-            this.iD_UTENTETextBox.Text = this.uTENTETableAdapter.GetNextID_Utente().ToString();
+            try
+            {
+                this.uTENTEBindingSource.AddNew();
+                gENEROTextBox.Text = comboBox2.Text.Substring(0, 1);
+                this.iD_UTENTETextBox.Text = this.uTENTETableAdapter.GetNextID_Utente().ToString();
+            }
+            catch { }
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -105,9 +109,15 @@ namespace BD_Trab
         private void button4_Click(object sender, EventArgs e)
         {
             uTENTEBindingSource.EndEdit();
-            uTENTEBindingSource.AddNew();
+            try
+            {
+                uTENTEBindingSource.AddNew();
+            }
+            catch { }
             uTENTEBindingSource.RemoveCurrent();
+
             tableAdapterManager.UpdateAll(bd1);
+
             checkClose = false;
             principal.Show();
             Hide();

@@ -92,6 +92,13 @@ namespace BD_Trab
 
         private void button4_Click(object sender, EventArgs e)
         {
+            uRGENCIABindingSource.EndEdit();
+            try
+            {
+                uRGENCIABindingSource.AddNew();
+            }
+            catch { }
+            uRGENCIABindingSource.RemoveCurrent();
             tableAdapterManager.UpdateAll(bD);
             checkClose = false;
             principal.Show();
@@ -100,8 +107,13 @@ namespace BD_Trab
 
         private void button1_Click(object sender, EventArgs e)
         {
-            uRGENCIABindingSource.AddNew();
+            try
+            {
+                uRGENCIABindingSource.AddNew();
+            }
+            catch { }
             iD_URGENCIATextBox.Text = uRGENCIATableAdapter.GetNextID_Urgencia().ToString();
+            
         }
 
         private void button2_Click(object sender, EventArgs e)
