@@ -63,6 +63,12 @@ namespace BD_Trab
             string genero = gENEROTextBox.Text;
             string morada = mORADATextBox.Text;
 
+            if (nome == "" || morada == "")
+            {
+                MessageBox.Show("Tem de preencher todos os campos");
+                return;
+            }
+
             OracleCommand comm = new OracleCommand(string.Format("update utente" +
                 " set nome='{0}',genero='{1}',morada='{2}'" +
                 " where id_utente={3}"
@@ -157,12 +163,15 @@ namespace BD_Trab
             iD_UTENTETextBox1.Text = iD_UTENTETextBox.Text;
             cONTACTOTextBox1.Text = textBox3.Text;
 
+            if (cONTACTOTextBox1.Text != "" && int.TryParse(cONTACTOTextBox1.Text, out int temp))
+            {
 
-            OracleCommand comm = new OracleCommand(string.Format("insert into contactos values('{0}','{1}')"
-                , iD_UTENTETextBox.Text, cONTACTOTextBox1.Text), principal.GetOracleConnection());
-            comm.ExecuteNonQuery();
+                OracleCommand comm = new OracleCommand(string.Format("insert into contactos values('{0}','{1}')"
+                    , iD_UTENTETextBox.Text, cONTACTOTextBox1.Text), principal.GetOracleConnection());
+                comm.ExecuteNonQuery();
 
-            cONTACTOSBindingSource.AddNew();
+                cONTACTOSBindingSource.AddNew();
+            }
             cONTACTOSBindingSource.RemoveCurrent();
         }
 

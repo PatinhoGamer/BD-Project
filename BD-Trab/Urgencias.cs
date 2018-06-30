@@ -119,6 +119,15 @@ namespace BD_Trab
                     mes = i + 1;
             string data_pronta = string.Format("{0}-{1}-{2}", array_data[4], mes, array_data[0]);
 
+            if (id_utente == "" || !int.TryParse(id_utente, out int temp) || id_trab == "" || !int.TryParse(id_trab, out temp) || desc == "")
+            {
+                MessageBox.Show("Tem de preencher todos os campos");
+                return;
+            }
+
+
+
+
             OracleCommand comm = new OracleCommand(string.Format("update urgencia" +
                 " set id_utente={0},id_trabalhador={1},data_=to_date('{2}','YYYY-MM-DD'),descricao='{3}'" +
                 " where id_urgencia = {4}"
@@ -154,7 +163,7 @@ namespace BD_Trab
                 OracleCommand comm = new OracleCommand(string.Format("delete from traburg where id_urgencia = {0} and id_trabalhador = {1}"
                     , iD_URGENCIATextBox1.Text, iD_TRABALHADORTextBox1.Text), principal.GetOracleConnection());
                 comm.ExecuteNonQuery();
-                
+
                 tRABURGBindingSource.RemoveCurrent();
             }
             catch { }
@@ -182,10 +191,13 @@ namespace BD_Trab
             string id_urg = iD_URGENCIATextBox.Text;
             string id_trab = textBox1.Text;
 
-            OracleCommand comm = new OracleCommand(string.Format("insert into traburg values('{0}','{1}')", id_urg, id_trab), principal.GetOracleConnection());
-            comm.ExecuteNonQuery();
+            if (id_trab != "" && int.TryParse(id_trab, out int temp))
+            {
+                OracleCommand comm = new OracleCommand(string.Format("insert into traburg values('{0}','{1}')", id_urg, id_trab), principal.GetOracleConnection());
+                comm.ExecuteNonQuery();
 
-            tRABURGBindingSource.AddNew();
+                tRABURGBindingSource.AddNew();
+            }
             tRABURGBindingSource.RemoveCurrent();
         }
     }

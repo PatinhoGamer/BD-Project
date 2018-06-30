@@ -81,6 +81,11 @@ namespace BD_Trab
             string encargo = eNCARGOTextBox.Text;
             string turno = tURNOTextBox.Text;
 
+            if (nome == "" || morada == "") {
+                MessageBox.Show("Tem de preencher todos os campos");
+                return;
+            }
+
             OracleCommand comm = new OracleCommand(string.Format("update trabalhador" +
                 " set nome='{0}',genero='{1}',morada='{2}',encargo='{3}',turno='{4}'" +
                 " where id_trabalhador={5}"
